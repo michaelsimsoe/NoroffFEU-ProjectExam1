@@ -4,21 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+  <title>The SpaceX Timeline</title>
 </head>
 <body>
-  <header class="b-header">
-    <div class="b-header__main-logo">SpaceX Timeline</div>
+  
+  <header class="b-header b-header--intro"> <!-- HEADER start  -->
+    <div class="b-header__main-logo b-header__main-logo--intro">
+      <a href="/">
+        <h1>
+          <span class="b-header__main-logo__the">The</span>
+          <span class="b-header__main-logo__space">Space<span class="b-header__main-logo__x">X</span></span>
+          <span class="b-header__main-logo__time">Timeline</span>
+        </h1>
+      </a>
+    </div>
     <nav class="b-header__main-nav">
-      <a href="" class="b-header__main-nav-item">Timeline</a>
-      <a href="" class="b-header__main-nav-item">About SpaceX</a>
-      <a href="" class="b-header__main-nav-item">Join us to Mars</a>
+      <a href="/" class="b-header__main-nav-item b-header__main-nav-item--active">Timeline</a>
+      <a href="/about" class="b-header__main-nav-item">About SpaceX</a>
+      <a href="/join" class="b-header__main-nav-item">Join us to Mars</a>
     </nav>
-  </header>
-  <section class="b-takeoff">
-    <div class="b-takeoff__rocket-launched"></div>
-    <div class="b-takeoff__rocket"></div>
-    <div class="b-takeoff__cluds"></div>
+  </header> <!-- HEADER end  -->
+
+  <section class="b-takeoff"> <!-- Herosection start  -->
+    <div class="b-takeoff__rocket-launched b-takeoff__rocket-launched--hidden">
+      <img src="/img/falconfire.png" alt="A large Falcon Heavy rocket in takeoff.">
+    </div>
+    <div class="b-takeoff__rocket">
+      <img src="/img/falcon.png" alt="A large Falcon Heavy rocket">
+    </div>
+    <div class="b-takeoff__cluds">
+      <img src="/img/cloud.png" alt="A large cloud">
+    </div>
     <div class="b-takeoff__controll">
       <div class="b-takeoff__controll-title">
         <h3>Launch Controll</h3>
@@ -26,11 +43,37 @@
       <div class="b-takeoff__controll-timer">10:00</div>
       <button class="b-takeoff__controll-btn">Launch</button>
     </div>
-  </section>
-  <main class="main-container">
-    <article class="b-timeline"></article>
-    <aside class="b-timeline-minimap"></aside>
-  </main>
+    
+  </section> <!-- Herosection end  -->
+
+  
+
+  <main class="o-main-container"> <!-- Main container start  -->
+    <section class="b-timeline"> <!-- Timeline start  -->
+      <div class="b-timeline__path"></div>
+      <div class="b-timeline__rocket">
+        <img src="/img/rocket.png" alt="A Falcon rocket in space">
+      </div>
+    </section> <!-- Timeline end  -->
+
+    <aside class="b-timeline-minimap"> <!-- Minimap start  -->
+    </aside> <!-- Minimap end  -->
+  </main> <!-- Main container end  -->
+
+  <footer class="b-footer"> <!-- Main footer start  -->
+    <nav class="b-footer__nav">
+      <div class="b-footer__nav__links">
+        <h3 class="b-footer__nav__heading">Links</h3>
+      </div>
+      <div class="b-footer__nav__links">
+        <h3 class="b-footer__nav__heading">Links</h3>
+      </div>
+      <div class="b-footer__nav__links">
+        <h3 class="b-footer__nav__heading">Links</h3>
+      </div>
+    </nav>
+    <div class="b-footer__social-links"></div>
+  </footer> <!-- Main footer end  -->
   <script src="js/main.js"></script>
 </body>
 </html>

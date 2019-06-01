@@ -53,15 +53,15 @@ function makeHistoricalEvent(event) {
   var date = new Date(event.event_date_utc);
   var dateString = date.toDateString();
   var title = event.title;
-  var launch = event.flight_number != null ? true : false;
-  var historyEvent = true;
+  var isLaunch = event.flight_number != null ? true : false;
+  var isHistoryEvent = true;
   var text = event.details;
   return {
     date,
     dateString,
     title,
-    launch,
-    historyEvent,
+    isLaunch,
+    isHistoryEvent,
     text
   };
 }
@@ -71,29 +71,85 @@ function makeLaunchElement(launch) {
   var date = new Date(launch.launch_date_utc);
   var dateString = date.toDateString();
   var title = launch.mission_name;
-  var launch = true;
-  var historyEvent = false;
+  var isLaunch = true;
+  var isHistoryEvent = false;
   var text = details;
   return {
     date,
     dateString,
     title,
-    launch,
-    historyEvent,
+    isLaunch,
+    isHistoryEvent,
     text
   };
 }
 
 function makeDisplayItem(item) {
   container.innerHTML += `
-    <div class="${
-      item.historyEvent ? 'item__historical-event' : 'item__simple-launch'
-    }">
-      ${item.launch ? '<h3>LAUNCH</h3>' : ''}
-      ${item.historyEvent ? '<img src="img/falcon.jpg">' : ''}
-      <h2>${item.dateString}</h2>
-      <h3>${item.title}</h3>
-      ${item.text ? '<p>' + item.text + '</p>' : ''}
-    </div>
+    <article class="
+    b-timeline__item
+    ${
+      item.isHistoryEvent
+        ? 'b-timeline__item__event'
+        : 'b-timeline__item__launch'
+    }
+    ">
+      ${
+        item.isLaunch
+          ? '<h3 class="b-timeline__item__launch-true">LAUNCH</h3>'
+          : ''
+      }
+      ${item.isHistoryEvent ? '<img src="img/falcon.jpg">' : ''}
+      <h2 class="b-timeline__item__date">${item.dateString}</h2>
+      <h3 class="b-timeline__item__title">${item.title}</h3>
+      ${
+        item.text
+          ? '<p class="b-timeline__item__text">' + item.text + '</p>'
+          : ''
+      }
+      <a href="/single" class="btn btn--cta b-timeline__item__btn">Read More</a>
+    </article>
   `;
 }
+
+var hero = document.querySelector('.takeoff-container');
+var clouds = document.querySelector('.b-takeoff__cluds');
+var launchedRocket = document.querySelector('.b-takeoff__rocket-launched');
+var logo = document.querySelector('.b-header__main-logo');
+console.log(clouds);
+var header = document.querySelector('.b-header');
+var lastScrollTop = 0;
+// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+window.addEventListener(
+  'scroll',
+  function() {
+    // or window.addEventListener("scroll"....
+    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    var scaleValue = st / 100;
+    console.log(st);
+    clouds.style.transform = `translate(-50%,${-40 +
+      Math.floor((st / 10) * 6)}%) scale(${1 + Number(scaleValue)})`;
+
+    // Could this be solved with the intersection observer?
+    if (st > 11) {
+      logo.classList.remove('b-header__main-logo--intro');
+      header.classList.remove('b-header--intro');
+    } else {
+      logo.classList.add('b-header__main-logo--intro');
+      header.classList.add('b-header--intro');
+    }
+    if (st > 170) {
+      launchedRocket.classList.remove('b-takeoff__rocket-launched--hidden');
+    } else {
+      launchedRocket.classList.add('b-takeoff__rocket-launched--hidden');
+    }
+
+    if (st > 1200) {
+      clouds.style.display = 'none';
+    } else {
+      clouds.style.display = 'block';
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+  },
+  false
+);

@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    #TAKEOFF SECTION
+\*------------------------------------*/
+
+.b-takeoff {
+  background-image: url(../img/sky_star.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+  object-fit: fill;
+  height: 160vh;
+  overflow: hidden;
+}
+
+.b-takeoff__rocket-launched {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-10%, 0%);
+}
+
+.b-takeoff__rocket-launched--hidden {
+  display: none;
+}
+// ADJUST WHEN READY (IMAGE IS FIXED!!)
+.b-takeoff__rocket-launched img {
+  width: 20%;
+}
+
+.b-takeoff__rocket {
+  position: fixed;
+  left: 50%;
+  bottom: -5%;
+  transform: translate(-20%, 0%);
+  z-index: 0;
+}
+
+// ADJUST WHEN READY (IMAGE IS FIXED!!)
+.b-takeoff__rocket img {
+  width: 40%;
+}
+.b-takeoff__cluds {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, -40%);
+  z-index: 1;
+}
+// ADJUST WHEN READY (IMAGE IS FIXED!!)
+.b-takeoff__cluds img {
+  width: 100%;
+}
+
+.b-takeoff__controll {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.b-takeoff__controll-title {}
+.b-takeoff__controll-timer {}
+.b-takeoff__controll-btn {}

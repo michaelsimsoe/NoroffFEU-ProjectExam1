@@ -1,0 +1,88 @@
+/*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+
+.b-header {
+  align-items: center;
+  background-color: black;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  padding: 0 6em;
+  width: 100%;
+  z-index: 5;
+  transition: all .6s ease-out;
+}
+
+.b-header--intro {
+  justify-content: center;
+}
+
+.b-header a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.b-header__main-logo {
+  position: relative;
+  transition: all .6s ease-out;
+}
+
+.b-header__main-logo h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.b-header__main-logo--intro {
+  position: absolute;
+  left: 50%;
+  top: 480%;
+  transform: translate(-50%, -40%);
+  z-index: 2;
+}
+
+.b-header__main-logo__the {
+  display: none;
+}
+
+.b-header__main-logo--intro .b-header__main-logo__the,
+.b-header__main-logo--intro .b-header__main-logo__space,
+.b-header__main-logo--intro .b-header__main-logo__time {
+  display: block;
+}
+
+.b-header__main-logo--intro .b-header__main-logo__space {
+  color: #025A8F;
+}
+
+.b-header__main-logo--intro .b-header__main-logo__the,
+.b-header__main-logo--intro .b-header__main-logo__time {
+  font-size: 3.2rem;
+}
+.b-header__main-logo--intro .b-header__main-logo__time {
+  padding-left: 4rem;
+}
+
+
+
+.b-header__main-logo__space {}
+.b-header__main-logo__x {
+  color: #8A96A6;
+}
+.b-header__main-logo__time {}
+
+.b-header__main-nav {
+  padding: 2em;
+}
+
+.b-header__main-nav-item {
+  margin: .8em;
+  text-transform: uppercase;
+}
+
+.b-header__main-nav-item--active {
+  text-decoration: underline;
+  background-color: #025A8F;
+  padding: .2em;
+}

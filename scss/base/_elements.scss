@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #ELEMENTS
+\*------------------------------------*/
+
+html, body {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+html {
+  box-sizing: border-box;
+  z-index: 1;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}

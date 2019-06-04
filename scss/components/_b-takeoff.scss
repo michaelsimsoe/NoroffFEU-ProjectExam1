@@ -52,10 +52,69 @@
 }
 
 .b-takeoff__controll {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  border: 5px solid #EB593E;
+  border-radius: 4px;
+  background-color: rgba(235, 88, 62, 0.4);
+  display: grid;
+  grid-template-areas:
+    'title title title'
+    'timer button button';
+  position: fixed;
+  width: 20em;
+  bottom: 3em;
+  right: 3em;
 }
-.b-takeoff__controll-title {}
-.b-takeoff__controll-timer {}
-.b-takeoff__controll-btn {}
+
+.b-takeoff__controll-title {
+  background-color: #EB593E;
+  grid-area: title;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.b-takeoff__controll-title h3 {
+  margin: 0;
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+}
+
+
+.b-takeoff__controll-timer {
+  grid-area: timer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b-takeoff__controll-timer__time {
+  background-color: #EB593E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.b-takeoff__controll-btn {
+  grid-area: button;
+  height: 100px;
+}
+
+.b-takeoff__controll-timer,
+.b-takeoff__controll-btn {
+  padding: 20px;
+}
+
+.b-takeoff__controll-btn__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  height: 100%;
+  width: 100%;
+}

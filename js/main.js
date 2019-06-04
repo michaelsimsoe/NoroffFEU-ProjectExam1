@@ -1,4 +1,5 @@
 var container = document.querySelector('.b-timeline');
+// container.style.display = 'none';
 var eventArray = [];
 fetch('https://api.spacexdata.com/v3/history')
   .then(res => {
@@ -36,7 +37,14 @@ fetch('https://api.spacexdata.com/v3/history')
       )
       .then(() => {
         var sorted = eventArray.sort((a, b) => (a.date > b.date ? 1 : -1));
-        sorted.forEach(item => makeDisplayItem(item));
+        let side = 'left';
+        sorted.forEach(item => {
+          makeDisplayItem(item, side);
+          console.log(item.isHistoryEvent, side === 'left');
+          if (item.isHistoryEvent) {
+            side === 'left' ? (side = 'right') : (side = 'left');
+          }
+        });
       })
       .catch(
         error => console.log(error)
@@ -84,32 +92,48 @@ function makeLaunchElement(launch) {
   };
 }
 
-function makeDisplayItem(item) {
+function makeDisplayItem(item, side = null) {
   container.innerHTML += `
     <article class="
     b-timeline__item
     ${
       item.isHistoryEvent
-        ? 'b-timeline__item__event'
+        ? `b-timeline__item__event b-timeline__item__event-${side}`
         : 'b-timeline__item__launch'
     }
     ">
       ${
         item.isLaunch
-          ? '<h3 class="b-timeline__item__launch-true">LAUNCH</h3>'
+          ? '<div class="b-timeline__item__launch-true"><h3>LAUNCH</h3></div>'
           : ''
       }
-      ${item.isHistoryEvent ? '<img src="img/falcon.jpg">' : ''}
+      ${
+        item.isHistoryEvent
+          ? '<div class="b-timeline__item__img"><img src="img/falcon.jpg"></div>'
+          : ''
+      }
+      <div class="b-timeline__item__content">
       <h2 class="b-timeline__item__date">${item.dateString}</h2>
       <h3 class="b-timeline__item__title">${item.title}</h3>
       ${
         item.text
-          ? '<p class="b-timeline__item__text">' + item.text + '</p>'
+          ? '<p class="b-timeline__item__text">' +
+            limitTextTo140`${item.text}` +
+            '</p>'
           : ''
       }
-      <a href="/single" class="btn btn--cta b-timeline__item__btn">Read More</a>
+      <a href="/single" class="btn btn__cta b-timeline__item__btn">Read More</a>
+      </div>
     </article>
   `;
+}
+
+function limitTextTo140(string, text) {
+  if (text.length < 70) {
+    return text;
+  } else {
+    return text.substring(0, 67) + '...';
+  }
 }
 
 var hero = document.querySelector('.takeoff-container');
@@ -153,3 +177,16 @@ window.addEventListener(
   },
   false
 );
+
+// clouds.style.display = 'none';
+const launchBtn = document.getElementById('launch_button');
+const timeline = document.getElementById('timeline');
+
+launchBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  timeline.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest'
+  });
+});

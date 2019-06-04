@@ -20,28 +20,35 @@
       </a>
     </div>
     <nav class="b-header__main-nav">
-      <a href="/" class="b-header__main-nav-item b-header__main-nav-item--active">Timeline</a>
-      <a href="/about" class="b-header__main-nav-item">About SpaceX</a>
-      <a href="/join" class="b-header__main-nav-item">Join us to Mars</a>
+      <a href="" class="b-header__main-nav-item b-header__main-nav-item--active">Timeline</a>
+      <a href="about" class="b-header__main-nav-item">About SpaceX</a>
+      <a href="join" class="b-header__main-nav-item">Join us to Mars</a>
     </nav>
   </header> <!-- HEADER end  -->
 
   <section class="b-takeoff"> <!-- Herosection start  -->
     <div class="b-takeoff__rocket-launched b-takeoff__rocket-launched--hidden">
-      <img src="/img/falconfire.png" alt="A large Falcon Heavy rocket in takeoff.">
+      <img src="img/falconfire.png" alt="A large Falcon Heavy rocket in takeoff.">
     </div>
     <div class="b-takeoff__rocket">
-      <img src="/img/falcon.png" alt="A large Falcon Heavy rocket">
+      <img src="img/falcon.png" alt="A large Falcon Heavy rocket">
     </div>
     <div class="b-takeoff__cluds">
-      <img src="/img/cloud.png" alt="A large cloud">
+      <img src="img/cloud.png" alt="A large cloud">
     </div>
+
     <div class="b-takeoff__controll">
       <div class="b-takeoff__controll-title">
         <h3>Launch Controll</h3>
       </div>
-      <div class="b-takeoff__controll-timer">10:00</div>
-      <button class="b-takeoff__controll-btn">Launch</button>
+      <div class="b-takeoff__controll-timer">
+        <div class="b-takeoff__controll-timer__time">
+          10:00
+        </div>
+      </div>
+      <div class="b-takeoff__controll-btn">
+        <a href="#timeline" id="launch_button" class="btn btn__cta b-takeoff__controll-btn__button">Launch</a>
+      </div>  
     </div>
     
   </section> <!-- Herosection end  -->
@@ -49,10 +56,10 @@
   
 
   <main class="o-main-container"> <!-- Main container start  -->
-    <section class="b-timeline"> <!-- Timeline start  -->
+    <section class="b-timeline" id="timeline"> <!-- Timeline start  -->
       <div class="b-timeline__path"></div>
       <div class="b-timeline__rocket">
-        <img src="/img/rocket.png" alt="A Falcon rocket in space">
+        <img src="img/rocket.png" alt="A Falcon rocket in space">
       </div>
     </section> <!-- Timeline end  -->
 
@@ -62,17 +69,39 @@
 
   <footer class="b-footer"> <!-- Main footer start  -->
     <nav class="b-footer__nav">
-      <div class="b-footer__nav__links">
-        <h3 class="b-footer__nav__heading">Links</h3>
-      </div>
-      <div class="b-footer__nav__links">
-        <h3 class="b-footer__nav__heading">Links</h3>
-      </div>
-      <div class="b-footer__nav__links">
-        <h3 class="b-footer__nav__heading">Links</h3>
-      </div>
+
+      <div class="b-footer__nav__links"> <!-- SpaceX Resources start  -->
+        <h3 class="b-footer__nav__links__heading">SpaceX Resources</h3>
+        <a href="https://www.spacex.com/" class="b-footer__nav__links__link">SpaceX homepage</a>
+        <a href="https://www.flickr.com/photos/spacex" class="b-footer__nav__links__link">SpaceX photos on Flicr</a>
+        <a href="https://docs.spacexdata.com/?version=latest#9f1dfdc0-fbe8-4ae5-9209-7f3d649a627c" class="b-footer__nav__links__link">SpaceX API</a>
+      </div> <!-- SpaceX Resources end  -->
+
+      <div class="b-footer__nav__links"> <!--  start  -->
+        <h3 class="b-footer__nav__links__heading">Space Links</h3>
+        <a href="https://www.nasa.gov/" class="b-footer__nav__links__link">NASAs home page</a>
+        <a href="https://www.instagram.com/nasa/" class="b-footer__nav__links__link">NASAs Instagram site</a>
+        <a href="https://spaceflightnow.com/launch-schedule/" class="b-footer__nav__links__link">Launch Schedule on Spaceflight Now</a>
+      </div> <!--  end  -->
+
+      <div class="b-footer__nav__links"> <!-- This page start  -->
+        <h3 class="b-footer__nav__links__heading">Pages on this site</h3>
+        <a href="" class="b-footer__nav__links__link">Main page</a>
+        <a href="timetable" class="b-footer__nav__links__link">Timeline Table</a>
+        <a href="single" class="b-footer__nav__links__link">Single Event (sample)</a>
+        <a href="about" class="b-footer__nav__links__link">About SpaceX</a>
+        <a href="join" class="b-footer__nav__links__link">Apply to join the Mars mission</a>
+      </div> <!-- This page end  -->
     </nav>
-    <div class="b-footer__social-links"></div>
+    <div class="b-footer__social-links">
+      <a href="/" class="b-footer__social-links__link"><img src="img/svg/face.svg" alt="Facebook image"></a>
+      <a href="/" class="b-footer__social-links__link"><img src="img/svg/twitter.svg" alt="Twitter image"></a>
+      <a href="/" class="b-footer__social-links__link"><img src="img/svg/insta.svg" alt="Instagram image"></a>
+      <a href="/" class="b-footer__social-links__link"><img src="img/svg/yt.svg" alt="YouTube image"></a>
+    </div>
+    <div class="b-footer__information">
+      <p>This site is made as an assignment in my frontend developer educations through <a href="https://www.noroff.no/">Noroff School of technology and digital media</a>. The information on this page is collected with the SpaceX API. The images and photos are from SpaceXs flicr account and <a href="https://pixabay.com/no/">pixabay.com</a></p>  
+    </div>
   </footer> <!-- Main footer end  -->
   <script src="js/main.js"></script>
 </body>

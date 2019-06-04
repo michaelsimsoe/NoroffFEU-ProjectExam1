@@ -4,11 +4,14 @@
 .b-timeline {
   position: relative;
   background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space.jpg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .b-timeline__path {
   position: absolute;
-  border-left: 3px solid green;
+  border-left: 3px solid #025A8F;
   min-height: 100%;
   left: 50%;
   bottom: 0;
@@ -33,55 +36,94 @@
 .b-timeline__item {
   background-color: rgb(0, 0, 0);
   border: 5px solid #025A8F;
-  display: grid;
-  grid-template-columns: .5fr 3fr 2fr;
-  grid-template-rows: 1fr 1fr;
-  width: 20%;
+  display: flex;
+  width: 30%;
+  height: 100%;
+  margin: 5em 5em;
+}
+
+.b-timeline__item__event-left::after {
+  content: "";
+  position: relative;
+  height: 5em;
+  left: 11%;
+  top: 30px;
+  border: 5px solid #025A8F;
+  transform: rotate(90deg);
+  margin-left: -10px;
+}
+
+.b-timeline__item__event-right::before {
+  content: "";
+  position: relative;
+  height: 5em;
+  right: 9%;
+  top: 30px;
+  border: 5px solid #025A8F;
+  transform: rotate(90deg);
+  margin-left: -10px;
+}
+
+.b-timeline__item__content {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .b-timeline__item__date {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  font-size: 1.4rem;
+  padding: .2rem;
+  text-align: center;
+  margin: 0;
 }
 
 .b-timeline__item__title {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  font-size: 1.6rem;
+  padding: 0.3rem;
+  margin: 0;
 }
 
 .b-timeline__item__text {
-  grid-column-start: 3;
-  grid-row-start: 1;
+  font-size: 1.4rem;
+  padding: 0.3rem;
+  margin: 0;
 }
 
 .b-timeline__item__btn {
-  grid-column-start: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  display: block;
 }
 
 .b-timeline__item__launch-true {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  background-color: #025A8F;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 3em;
+}
+
+.b-timeline__item__launch-true h3 {
   text-transform: uppercase;
-  transform: rotate(90deg) translateY(80%) translateX(15%);
+  transform-origin: center center;
+  transform: rotate(-90deg);
+  font-size: 1.4rem;
 }
 
 .b-timeline__item__event {
 }
 
-.b-timeline__item__event img {
+.b-timeline__item__img {
+  flex-shrink: 1;
+  width: 100%;
+}
+
+.b-timeline__item__img img {
   width: 100%;
   object-fit: contain;
+  display: block;
 }
 
 
 .b-timeline__item__launch {
-
+  display: none;
 }

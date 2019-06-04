@@ -7,12 +7,35 @@
   background-color: black;
   height: 400px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
-.b-footera {
+.b-footer a {
   text-decoration: none;
   color: #fff;
+}
+
+.b-footer__nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.b-footer__nav__links {
+  display: flex;
+  flex-direction: column;
+}
+
+.b-footer__social-links {
+  display: flex;
+}
+
+.b-footer__social-links__link {
+  margin-left: 1em;
+}
+
+.b-footer__social-links__link img {
+  width: 100%;
 }

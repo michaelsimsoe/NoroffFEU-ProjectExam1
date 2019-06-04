@@ -349,7 +349,7 @@ template {
   font-size: 1.6rem;
   padding: 0.6em; }
 
-.btn--cta {
+.btn__cta {
   color: #fff;
   background-color: #F28705; }
 
@@ -362,7 +362,8 @@ html, body {
 
 html {
   box-sizing: border-box;
-  z-index: 1; }
+  z-index: 1;
+  scroll-behavior: smooth; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -525,20 +526,75 @@ h3 {
   width: 100%; }
 
 .b-takeoff__controll {
-  position: absolute;
-  right: 0;
-  bottom: 0; }
+  border: 5px solid #EB593E;
+  border-radius: 4px;
+  background-color: rgba(235, 88, 62, 0.4);
+  display: grid;
+  grid-template-areas: 'title title title' 'timer button button';
+  position: fixed;
+  width: 20em;
+  bottom: 3em;
+  right: 3em; }
+
+.b-takeoff__controll-title {
+  background-color: #EB593E;
+  grid-area: title;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%; }
+
+.b-takeoff__controll-title h3 {
+  margin: 0;
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase; }
+
+.b-takeoff__controll-timer {
+  grid-area: timer;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.b-takeoff__controll-timer__time {
+  background-color: #EB593E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%; }
+
+.b-takeoff__controll-btn {
+  grid-area: button;
+  height: 100px; }
+
+.b-takeoff__controll-timer,
+.b-takeoff__controll-btn {
+  padding: 20px; }
+
+.b-takeoff__controll-btn__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  height: 100%;
+  width: 100%; }
 
 /*------------------------------------*\
     #TIMELINE
 \*------------------------------------*/
 .b-timeline {
   position: relative;
-  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space.jpg); }
+  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space.jpg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
 
 .b-timeline__path {
   position: absolute;
-  border-left: 3px solid green;
+  border-left: 3px solid #025A8F;
   min-height: 100%;
   left: 50%;
   bottom: 0; }
@@ -554,43 +610,80 @@ h3 {
 .b-timeline__item {
   background-color: black;
   border: 5px solid #025A8F;
-  display: grid;
-  grid-template-columns: .5fr 3fr 2fr;
-  grid-template-rows: 1fr 1fr;
-  width: 20%; }
+  display: flex;
+  width: 30%;
+  height: 100%;
+  margin: 5em 5em; }
+
+.b-timeline__item__event-left::after {
+  content: "";
+  position: relative;
+  height: 5em;
+  left: 11%;
+  top: 30px;
+  border: 5px solid #025A8F;
+  transform: rotate(90deg);
+  margin-left: -10px; }
+
+.b-timeline__item__event-right::before {
+  content: "";
+  position: relative;
+  height: 5em;
+  right: 9%;
+  top: 30px;
+  border: 5px solid #025A8F;
+  transform: rotate(90deg);
+  margin-left: -10px; }
+
+.b-timeline__item__content {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
 
 .b-timeline__item__date {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2; }
+  font-size: 1.4rem;
+  padding: .2rem;
+  text-align: center;
+  margin: 0; }
 
 .b-timeline__item__title {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3; }
+  font-size: 1.6rem;
+  padding: 0.3rem;
+  margin: 0; }
 
 .b-timeline__item__text {
-  grid-column-start: 3;
-  grid-row-start: 1; }
+  font-size: 1.4rem;
+  padding: 0.3rem;
+  margin: 0; }
 
 .b-timeline__item__btn {
-  grid-column-start: 3;
-  grid-row-start: 2;
-  grid-row-end: 3; }
+  display: block; }
 
 .b-timeline__item__launch-true {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  text-transform: uppercase;
-  transform: rotate(90deg) translateY(80%) translateX(15%); }
+  background-color: #025A8F;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 3em; }
 
-.b-timeline__item__event img {
+.b-timeline__item__launch-true h3 {
+  text-transform: uppercase;
+  transform-origin: center center;
+  transform: rotate(-90deg);
+  font-size: 1.4rem; }
+
+.b-timeline__item__img {
+  flex-shrink: 1;
+  width: 100%; }
+
+.b-timeline__item__img img {
   width: 100%;
-  object-fit: contain; }
+  object-fit: contain;
+  display: block; }
+
+.b-timeline__item__launch {
+  display: none; }
 
 /*------------------------------------*\
     #FOOTER
@@ -600,12 +693,30 @@ h3 {
   background-color: black;
   height: 400px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   width: 100%; }
 
-.b-footera {
+.b-footer a {
   text-decoration: none;
   color: #fff; }
+
+.b-footer__nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-around; }
+
+.b-footer__nav__links {
+  display: flex;
+  flex-direction: column; }
+
+.b-footer__social-links {
+  display: flex; }
+
+.b-footer__social-links__link {
+  margin-left: 1em; }
+
+.b-footer__social-links__link img {
+  width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

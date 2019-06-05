@@ -40,7 +40,6 @@ fetch('https://api.spacexdata.com/v3/history')
         let side = 'left';
         sorted.forEach(item => {
           makeDisplayItem(item, side);
-          console.log(item.isHistoryEvent, side === 'left');
           if (item.isHistoryEvent) {
             side === 'left' ? (side = 'right') : (side = 'left');
           }

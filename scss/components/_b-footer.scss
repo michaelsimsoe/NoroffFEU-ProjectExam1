@@ -5,16 +5,21 @@
 .b-footer{
   position: relative;
   background-color: black;
-  height: 400px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  z-index: 6;
 }
 
 .b-footer a {
   text-decoration: none;
   color: #fff;
+}
+
+.b-footer a:hover {
+  color: #025A8F;
 }
 
 .b-footer__nav {
@@ -28,6 +33,14 @@
   flex-direction: column;
 }
 
+.b-footer__nav__links__link {
+  margin-top: .5em;
+}
+
+.b-footer__nav__links__link:first-child {
+  margin-top: 0;
+}
+
 .b-footer__social-links {
   display: flex;
 }
@@ -38,4 +51,9 @@
 
 .b-footer__social-links__link img {
   width: 100%;
+}
+
+.b-footer__information {
+  font-size: 1.2rem;
+  width: 60%;
 }

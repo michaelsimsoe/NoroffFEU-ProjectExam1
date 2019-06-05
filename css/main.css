@@ -341,6 +341,12 @@ template {
   position: relative;
   z-index: 4; }
 
+.o-single-container,
+.o-about-container,
+.o-join-container,
+.o-timetable-container {
+  padding-top: 100px; }
+
 /*------------------------------------*\
     #BUTTONS
 \*------------------------------------*/
@@ -352,6 +358,9 @@ template {
 .btn__cta {
   color: #fff;
   background-color: #F28705; }
+
+.btn__cta:hover {
+  background-color: #d57602; }
 
 /*------------------------------------*\
     #ELEMENTS
@@ -417,7 +426,7 @@ h3 {
 .b-header {
   align-items: center;
   background-color: black;
-  height: 100px;
+  min-height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -425,18 +434,19 @@ h3 {
   padding: 0 6em;
   width: 100%;
   z-index: 5;
-  transition: all .6s ease-out; }
+  transition: all .6s ease-out;
+  top: 0; }
 
 .b-header--intro {
   justify-content: center; }
 
-.b-header a {
-  text-decoration: none;
-  color: #fff; }
-
 .b-header__main-logo {
   position: relative;
   transition: all .6s ease-out; }
+
+.b-header__main-logo a {
+  text-decoration: none;
+  color: #fff; }
 
 .b-header__main-logo h1 {
   font-family: 'Roboto', sans-serif; }
@@ -474,12 +484,26 @@ h3 {
 
 .b-header__main-nav-item {
   margin: .8em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff; }
+
+.b-header__main-nav-item a:hover {
+  color: #025A8F; }
+
+.b-header__main-nav-item:hover {
+  background-color: #0081d2; }
 
 .b-header__main-nav-item--active {
   text-decoration: underline;
   background-color: #025A8F;
   padding: .2em; }
+
+.b-header__main-nav-item--active:hover {
+  background-color: #0081d2; }
+
+.b-header__main-nav-item--active a:hover {
+  color: #fff; }
 
 /*------------------------------------*\
     #TAKEOFF SECTION
@@ -618,12 +642,12 @@ h3 {
 .b-timeline__item__event-left::after {
   content: "";
   position: relative;
-  height: 5em;
-  left: 11%;
+  height: 5.1em;
+  left: 10%;
   top: 30px;
-  border: 5px solid #025A8F;
+  border: 2px solid #025A8F;
   transform: rotate(90deg);
-  margin-left: -10px; }
+  margin-left: -4px; }
 
 .b-timeline__item__event-right::before {
   content: "";
@@ -631,9 +655,9 @@ h3 {
   height: 5em;
   right: 9%;
   top: 30px;
-  border: 5px solid #025A8F;
+  border: 2px solid #025A8F;
   transform: rotate(90deg);
-  margin-left: -10px; }
+  margin-left: -4px; }
 
 .b-timeline__item__content {
   flex-grow: 2;
@@ -685,21 +709,54 @@ h3 {
 .b-timeline__item__launch {
   display: none; }
 
+.b-timeline__mars {
+  position: relative;
+  order: 2;
+  display: flex;
+  justify-content: center;
+  z-index: 6; }
+
+.b-timeline__mars img {
+  width: 100%;
+  height: 100%; }
+
+.b-timeline__mars__text {
+  position: absolute;
+  top: 1em;
+  text-align: center; }
+
+.b-timeline__mars__text h2,
+.b-timeline__mars__text h3 {
+  margin: 0; }
+
+.b-timeline__mars__btn {
+  position: absolute;
+  bottom: 50%; }
+
+.b-timeline__mars__btn a {
+  text-transform: uppercase;
+  font-size: 2rem;
+  padding: 1.2em; }
+
 /*------------------------------------*\
     #FOOTER
 \*------------------------------------*/
 .b-footer {
   position: relative;
   background-color: black;
-  height: 400px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; }
+  width: 100%;
+  z-index: 6; }
 
 .b-footer a {
   text-decoration: none;
   color: #fff; }
+
+.b-footer a:hover {
+  color: #025A8F; }
 
 .b-footer__nav {
   display: flex;
@@ -710,6 +767,12 @@ h3 {
   display: flex;
   flex-direction: column; }
 
+.b-footer__nav__links__link {
+  margin-top: .5em; }
+
+.b-footer__nav__links__link:first-child {
+  margin-top: 0; }
+
 .b-footer__social-links {
   display: flex; }
 
@@ -718,5 +781,9 @@ h3 {
 
 .b-footer__social-links__link img {
   width: 100%; }
+
+.b-footer__information {
+  font-size: 1.2rem;
+  width: 60%; }
 
 /*# sourceMappingURL=main.css.map */

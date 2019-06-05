@@ -5,7 +5,7 @@
 .b-header {
   align-items: center;
   background-color: black;
-  height: 100px;
+  min-height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -14,20 +14,21 @@
   width: 100%;
   z-index: 5;
   transition: all .6s ease-out;
+  top: 0;
 }
 
 .b-header--intro {
   justify-content: center;
 }
 
-.b-header a {
-  text-decoration: none;
-  color: #fff;
-}
-
 .b-header__main-logo {
   position: relative;
   transition: all .6s ease-out;
+}
+
+.b-header__main-logo a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .b-header__main-logo h1 {
@@ -79,10 +80,28 @@
 .b-header__main-nav-item {
   margin: .8em;
   text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+}
+
+.b-header__main-nav-item a:hover {
+  color: #025A8F;
+}
+
+.b-header__main-nav-item:hover {
+  background-color: rgb(0, 129, 210);
 }
 
 .b-header__main-nav-item--active {
   text-decoration: underline;
   background-color: #025A8F;
   padding: .2em;
+}
+
+.b-header__main-nav-item--active:hover {
+  background-color: rgb(0, 129, 210);
+}
+
+.b-header__main-nav-item--active a:hover {
+  color: #fff;
 }

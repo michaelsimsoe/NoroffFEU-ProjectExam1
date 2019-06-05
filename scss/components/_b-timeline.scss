@@ -45,12 +45,12 @@
 .b-timeline__item__event-left::after {
   content: "";
   position: relative;
-  height: 5em;
-  left: 11%;
+  height: 5.1em;
+  left: 10%;
   top: 30px;
-  border: 5px solid #025A8F;
+  border: 2px solid #025A8F;
   transform: rotate(90deg);
-  margin-left: -10px;
+  margin-left: -4px;
 }
 
 .b-timeline__item__event-right::before {
@@ -59,9 +59,9 @@
   height: 5em;
   right: 9%;
   top: 30px;
-  border: 5px solid #025A8F;
+  border: 2px solid #025A8F;
   transform: rotate(90deg);
-  margin-left: -10px;
+  margin-left: -4px;
 }
 
 .b-timeline__item__content {
@@ -123,7 +123,41 @@
   display: block;
 }
 
-
 .b-timeline__item__launch {
   display: none;
+}
+
+.b-timeline__mars {
+  position: relative;
+  order: 2;
+  display: flex;
+  justify-content: center;
+  z-index: 6;
+}
+
+.b-timeline__mars img {
+  width: 100%;
+  height: 100%;
+}
+
+.b-timeline__mars__text {
+  position: absolute;
+  top: 1em;
+  text-align: center;
+}
+
+.b-timeline__mars__text h2,
+.b-timeline__mars__text h3 {
+  margin: 0;
+}
+
+.b-timeline__mars__btn {
+  position: absolute;
+  bottom: 50%;
+}
+
+.b-timeline__mars__btn a {
+  text-transform: uppercase;
+  font-size: 2rem;
+  padding: 1.2em;
 }

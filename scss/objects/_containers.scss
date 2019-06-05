@@ -2,3 +2,14 @@
   position: relative;
   z-index: 4;
 }
+
+.o-single-container {
+
+}
+
+.o-single-container,
+.o-about-container,
+.o-join-container,
+.o-timetable-container {
+  padding-top: 100px;
+}

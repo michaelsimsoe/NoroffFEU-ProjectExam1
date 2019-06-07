@@ -11,5 +11,7 @@
 .o-about-container,
 .o-join-container,
 .o-timetable-container {
+  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space.jpg);  
   padding-top: 100px;
+  height: 100%;
 }

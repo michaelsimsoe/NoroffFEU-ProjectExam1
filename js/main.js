@@ -63,13 +63,16 @@ function makeHistoricalEvent(event) {
   var isLaunch = event.flight_number != null ? true : false;
   var isHistoryEvent = true;
   var text = event.details;
+  var id = event.id;
   return {
     date,
     dateString,
     title,
     isLaunch,
     isHistoryEvent,
-    text
+    text,
+    id,
+    eventType: 'history'
   };
 }
 
@@ -81,13 +84,16 @@ function makeLaunchElement(launch) {
   var isLaunch = true;
   var isHistoryEvent = false;
   var text = details;
+  var id = launch.id;
   return {
     date,
     dateString,
     title,
     isLaunch,
     isHistoryEvent,
-    text
+    text,
+    id,
+    eventType: 'launches'
   };
 }
 
@@ -121,7 +127,9 @@ function makeDisplayItem(item, side = null) {
             '</p>'
           : ''
       }
-      <a href="/single" class="btn btn__cta b-timeline__item__btn">Read More</a>
+      <a href="/single/?type=${item.eventType}&id=${
+    item.id
+  }" class="btn btn__cta b-timeline__item__btn">Read More</a>
       </div>
     </article>
   `;

@@ -1,4 +1,5 @@
 var eventArray = [];
+const container = document.querySelector('.b-timetable__timetable__body');
 fetch('https://api.spacexdata.com/v3/history')
   .then(res => {
     console.log(res);
@@ -36,7 +37,9 @@ fetch('https://api.spacexdata.com/v3/history')
       .then(() => {
         var sorted = eventArray.sort((a, b) => (a.date > b.date ? 1 : -1));
         console.log(sorted);
-        sorted.forEach(item => {});
+        sorted.forEach(item => {
+          makeTimetable(item);
+        });
       })
       .catch(
         error => console.log(error)
@@ -56,13 +59,16 @@ function makeHistoricalEvent(event) {
   var isLaunch = event.flight_number != null ? true : false;
   var isHistoryEvent = true;
   var text = event.details;
+  var id = event.id;
   return {
     date,
     dateString,
     title,
     isLaunch,
     isHistoryEvent,
-    text
+    text,
+    id,
+    eventType: 'history'
   };
 }
 
@@ -74,12 +80,32 @@ function makeLaunchElement(launch) {
   var isLaunch = true;
   var isHistoryEvent = false;
   var text = details;
+  var id = launch.flight_number;
   return {
     date,
     dateString,
     title,
     isLaunch,
     isHistoryEvent,
-    text
+    text,
+    id,
+    eventType: 'launches'
   };
+}
+
+function makeTimetable(item) {
+  container.innerHTML += `<tr>
+    <td>${item.dateString}</td>
+    <td>${
+      item.isHistoryEvent
+        ? item.isLaunch
+          ? 'Historical Event & Launch'
+          : 'Historical Event'
+        : 'Launch'
+    }</td>
+    <td>${item.title}</td>
+    <td><a href="../single/?type=${item.eventType}&id=${
+    item.id
+  }">Read about event</a></td>
+  </tr>`;
 }

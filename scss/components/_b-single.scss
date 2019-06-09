@@ -2,4 +2,17 @@
     #SINGLE
 \*------------------------------------*/
 .b-single {
+    display: flex;
+    flex-direction: row;
+}
+
+.b-single__rocket-img {
+    margin: 0;
+}
+.b-single__rocket-img img {
+    min-height: 100%;
+}
+
+.b-single__event {
+    flex-grow: 3;
 }

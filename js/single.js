@@ -1,4 +1,5 @@
 const container = document.querySelector('.b-single');
+
 function getQueryStringValue(key) {
   return decodeURIComponent(
     window.location.search.replace(
@@ -34,7 +35,9 @@ function fetchLaunch(id, type) {
         date: launchDate.toDateString(),
         rocket: data.rocket.rocket_name,
         launch_site: data.launch_site.site_name_long,
-        launch_links: data.links
+        launch_links: data.links,
+        launch_success: data.launch_success,
+        isLaunch: true
       };
       return displayHistoryEvent(launchObj);
     })
@@ -78,14 +81,18 @@ function fetchHistory(id) {
           .then(res => res.json())
           .then(data => {
             var launchDate = new Date(data.launch_date_utc);
+            historyObj.isLaunch = true;
             historyObj.launch = {
               mission_name: data.mission_name,
               details: data.details,
               date: launchDate.toDateString(),
               rocket: data.rocket.rocket_name,
               launch_site: data.launch_site.site_name_long,
-              launch_links: data.links
+              launch_links: data.links,
+              launch_success: data.launch_success,
+              isLaunch: true
             };
+            console.log(historyObj);
             return displayHistoryEvent(historyObj);
           })
           .catch(
@@ -114,12 +121,63 @@ function fetchHistory(id) {
 
 function displayHistoryEvent(event) {
   container.innerHTML += `
-    <header className="b-single__header">
-      <h2>${event.title}</h2>
-      <h3>${event.date}</h3>
-    </header>
-    <section className="b-single__body">
-      <p className="b-single__body__text">${event.details}</p>
-    </section>
+    <figure class="b-single__rocket-img">
+        <img src="../img/falcon-500.png" alt="A large Falcon Heavy rocket">
+    </figure>
+    <div class="b-single__event">
+      <header class="b-single__header">
+        ${
+          event.isLaunch
+            ? '<div class="b-single__launch-true"><h3>LAUNCH</h3></div>'
+            : ''
+        }
+        <h2>${event.title}</h2>
+        <h3>${event.date}</h3>
+      </header>
+      <section class="b-single__body">
+        <p class="b-single__body__text">${event.details}</p>       
+        <table>
+          <thead>
+            <tr>
+              <th  colspan="2">Links</th>
+            </tr>  
+          </thead>
+          <tbody>
+          ${Object.keys(event.links)
+            .map(link => {
+              if (event.links[link] !== null) {
+                return `<tr>
+                <td><a href="${event.links[link]}">Article on ${
+                  link === 'article' ? 'SpaceX' : link
+                }</a></td>
+              </tr>`;
+              }
+            })
+            .join('')}
+          </tbody>
+        </table>
+        ${
+          event.isLaunch
+            ? `
+        <section>
+          <h3>Launch Information</h3>
+          <h4>This launch was ${
+            event.launch_success || event.launch.launch_success
+              ? 'successful'
+              : 'not successful'
+          }</h4>
+          <p>Mission name: ${event.mission_name ||
+            event.launch.mission_name}</p>
+          <p>Launch site: ${event.launch_site || event.launch.launch_site}</p>
+          <a href="${event.launch.launch_links.article_link ||
+            event.launch_links.article_link}">Read about it on Wikipedia</a>
+          <a href="${event.launch.launch_links.video_link ||
+            event.launch_links.video_link}">See the launch video on Youtube</a>
+        </section>
+        `
+            : ''
+        }
+      </section>
+    </div>
   `;
 }

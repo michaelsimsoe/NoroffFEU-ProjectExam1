@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #MOBILE MENU
+\*------------------------------------*/
+
+.b-mobile-menu {
+  overflow: hidden;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  max-height: 100px;
+  background-color: black;
+}
+
+.b-mobile-menu__main-logo {
+  position: relative;
+  transition: all .6s ease-out;
+  padding: 0.2em;
+}
+
+.b-mobile-menu__main-logo a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.b-mobile-menu__main-logo h1 {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.b-mobile-menu__main-logo__time {
+ display: block;
+}
+
+.b-mobile-menu__main-logo__space {}
+.b-mobile-menu__main-logo__x {
+  color: #8A96A6;
+}
+.b-mobile-menu__main-logo__time {
+
+}

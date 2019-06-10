@@ -146,10 +146,13 @@ function limitTextTo140(string, text) {
 var hero = document.querySelector('.takeoff-container');
 var clouds = document.querySelector('.b-takeoff__cluds');
 var launchedRocket = document.querySelector('.b-takeoff__rocket-launched');
+var groundRocket = document.querySelector('.b-takeoff__rocket');
 var logo = document.querySelector('.b-header__main-logo');
 console.log(clouds);
 var header = document.querySelector('.b-header');
 var lastScrollTop = 0;
+var mediaQuery770 = window.matchMedia('(min-width: 770px)');
+console.log(mediaQuery770);
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
 window.addEventListener(
   'scroll',
@@ -158,9 +161,15 @@ window.addEventListener(
     var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
     var scaleValue = st / 100;
     console.log(st);
-    clouds.style.transform = `translate(-50%,${-40 +
-      Math.floor((st / 10) * 6)}%) scale(${1 + Number(scaleValue)})`;
 
+    if (mediaQuery770.matches) {
+      clouds.style.transform = `translate(-50%,${-40 +
+        Math.floor((st / 10) * 6)}%) scale(${1 + Number(scaleValue)})`;
+    } else {
+      scaleValue = st / 10;
+      clouds.style.transform = `translate(-50%,${-40 +
+        Math.floor(st * 5)}%) scale(${1 + Number(scaleValue)})`;
+    }
     // Could this be solved with the intersection observer?
     if (st > 11) {
       logo.classList.remove('b-header__main-logo--intro');
@@ -169,17 +178,39 @@ window.addEventListener(
       logo.classList.add('b-header__main-logo--intro');
       header.classList.add('b-header--intro');
     }
-    if (st > 170) {
-      launchedRocket.classList.remove('b-takeoff__rocket-launched--hidden');
+
+    if (mediaQuery770.matches) {
+      if (st > 170) {
+        groundRocket.classList.add('b-takeoff__rocket-launched--hidden');
+        launchedRocket.classList.remove('b-takeoff__rocket-launched--hidden');
+      } else {
+        groundRocket.classList.remove('b-takeoff__rocket-launched--hidden');
+        launchedRocket.classList.add('b-takeoff__rocket-launched--hidden');
+      }
     } else {
-      launchedRocket.classList.add('b-takeoff__rocket-launched--hidden');
+      if (st > 70) {
+        groundRocket.classList.add('b-takeoff__rocket-launched--hidden');
+        launchedRocket.classList.remove('b-takeoff__rocket-launched--hidden');
+      } else {
+        groundRocket.classList.remove('b-takeoff__rocket-launched--hidden');
+        launchedRocket.classList.add('b-takeoff__rocket-launched--hidden');
+      }
     }
 
-    if (st > 1200) {
-      clouds.style.display = 'none';
+    if (mediaQuery770.matches) {
+      if (st > 1200) {
+        clouds.classList.add('b-takeoff__cluds--hidden');
+      } else {
+        clouds.classList.remove('b-takeoff__cluds--hidden');
+      }
     } else {
-      clouds.style.display = 'block';
+      if (st > 550) {
+        clouds.classList.add('b-takeoff__cluds--hidden');
+      } else {
+        clouds.classList.remove('b-takeoff__cluds--hidden');
+      }
     }
+
     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
   },
   false

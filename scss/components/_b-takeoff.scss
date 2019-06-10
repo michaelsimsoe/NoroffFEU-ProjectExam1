@@ -10,45 +10,107 @@
   object-fit: fill;
   height: 160vh;
   overflow: hidden;
+  position: relative;
+}
+
+@media only screen and (min-width: 770px) {
+  .b-takeoff {
+    background-image: url(../img/sky_star.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
+    object-fit: fill;
+    height: 160vh;
+    overflow: hidden;
+  }
 }
 
 .b-takeoff__rocket-launched {
   position: absolute;
   left: 50%;
-  bottom: 10%;
+  bottom: 45%;
   transform: translate(-10%, 0%);
 }
 
 .b-takeoff__rocket-launched--hidden {
-  display: none;
+  opacity: 0;
 }
 // ADJUST WHEN READY (IMAGE IS FIXED!!)
 .b-takeoff__rocket-launched img {
   width: 20%;
 }
 
+@media only screen and (min-width: 770px) {
+  .b-takeoff__rocket-launched {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-10%, 0%);
+  }
+
+  .b-takeoff__rocket-launched--hidden {
+    display: none;
+  }
+  // ADJUST WHEN READY (IMAGE IS FIXED!!)
+  .b-takeoff__rocket-launched img {
+    width: 20%;
+  }
+}
 .b-takeoff__rocket {
   position: fixed;
   left: 50%;
-  bottom: -5%;
-  transform: translate(-20%, 0%);
+  bottom: 7em;
+  transform: translate(-50%, 0%);
   z-index: 0;
 }
 
 // ADJUST WHEN READY (IMAGE IS FIXED!!)
 .b-takeoff__rocket img {
-  width: 40%;
+  width: 100%;
+  height: 100%;
 }
 .b-takeoff__cluds {
   position: absolute;
   left: 50%;
-  bottom: 10%;
-  transform: translate(-50%, -40%);
+  bottom: 70%;
+  transform: translate(-50%, -20%);
   z-index: 1;
 }
+
+.b-takeoff__cluds--hidden {
+  opacity: 0;
+}
+
 // ADJUST WHEN READY (IMAGE IS FIXED!!)
 .b-takeoff__cluds img {
   width: 100%;
+}
+
+@media only screen and (min-width: 770px) {
+  .b-takeoff__rocket {
+    position: fixed;
+    left: 50%;
+    bottom: -5%;
+    transform: translate(-20%, 0%);
+    z-index: 0;
+  }
+
+  // ADJUST WHEN READY (IMAGE IS FIXED!!)
+  .b-takeoff__rocket img {
+    width: 40%;
+  }
+  .b-takeoff__cluds {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, -40%);
+    z-index: 1;
+  }
+
+  // ADJUST WHEN READY (IMAGE IS FIXED!!)
+  .b-takeoff__cluds img {
+    width: 100%;
+  }
 }
 
 .b-takeoff__controll {
@@ -60,9 +122,10 @@
     'title title title'
     'timer button button';
   position: fixed;
-  width: 20em;
-  bottom: 3em;
-  right: 3em;
+  width: 100%;
+  height: 100px;
+  bottom: 4em;
+  z-index: 10;
 }
 
 .b-takeoff__controll-title {
@@ -71,13 +134,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
   width: 100%;
 }
 
 .b-takeoff__controll-title h3 {
   margin: 0;
-  padding: 5px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
 }
@@ -101,12 +162,11 @@
 
 .b-takeoff__controll-btn {
   grid-area: button;
-  height: 100px;
 }
 
 .b-takeoff__controll-timer,
 .b-takeoff__controll-btn {
-  padding: 20px;
+  padding: 4px;
 }
 
 .b-takeoff__controll-btn__button {
@@ -117,4 +177,74 @@
   font-size: 2rem;
   height: 100%;
   width: 100%;
+}
+
+@media only screen and (min-width: 770px) {
+  .b-takeoff__controll {
+    border: 5px solid #EB593E;
+    border-radius: 4px;
+    background-color: rgba(235, 88, 62, 0.4);
+    display: grid;
+    grid-template-areas:
+      'title title title'
+      'timer button button';
+    position: fixed;
+    width: 20em;
+    bottom: 3em;
+    right: 3em;
+  }
+
+  .b-takeoff__controll-title {
+    background-color: #EB593E;
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .b-takeoff__controll-title h3 {
+    margin: 0;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+  }
+
+
+  .b-takeoff__controll-timer {
+    grid-area: timer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .b-takeoff__controll-timer__time {
+    background-color: #EB593E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .b-takeoff__controll-btn {
+    grid-area: button;
+    height: 100px;
+  }
+
+  .b-takeoff__controll-timer,
+  .b-takeoff__controll-btn {
+    padding: 20px;
+  }
+
+  .b-takeoff__controll-btn__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    height: 100%;
+    width: 100%;
+  }
 }

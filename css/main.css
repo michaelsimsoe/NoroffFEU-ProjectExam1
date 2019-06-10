@@ -427,87 +427,90 @@ h3 {
     #HEADER
 \*------------------------------------*/
 .b-header {
-  align-items: center;
-  background-color: black;
-  min-height: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: fixed;
-  padding: 0 6em;
-  width: 100%;
-  z-index: 5;
-  transition: all .6s ease-out;
-  top: 0; }
-
-.b-header--intro {
-  justify-content: center; }
-
-.b-header__main-logo {
-  position: relative;
-  transition: all .6s ease-out; }
-
-.b-header__main-logo a {
-  text-decoration: none;
-  color: #fff; }
-
-.b-header__main-logo h1 {
-  font-family: 'Roboto', sans-serif; }
-
-.b-header__main-logo--intro {
-  position: absolute;
-  left: 50%;
-  top: 480%;
-  transform: translate(-50%, -40%);
-  z-index: 2; }
-
-.b-header__main-logo__the {
   display: none; }
 
-.b-header__main-logo--intro .b-header__main-logo__the,
-.b-header__main-logo--intro .b-header__main-logo__space,
-.b-header__main-logo--intro .b-header__main-logo__time {
-  display: block; }
+@media only screen and (min-width: 770px) {
+  .b-header {
+    align-items: center;
+    background-color: black;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    padding: 0 6em;
+    width: 100%;
+    z-index: 5;
+    transition: all .6s ease-out;
+    top: 0; }
 
-.b-header__main-logo--intro .b-header__main-logo__space {
-  color: #025A8F; }
+  .b-header--intro {
+    justify-content: center; }
 
-.b-header__main-logo--intro .b-header__main-logo__the,
-.b-header__main-logo--intro .b-header__main-logo__time {
-  font-size: 3.2rem; }
+  .b-header__main-logo {
+    position: relative;
+    transition: all .6s ease-out; }
 
-.b-header__main-logo--intro .b-header__main-logo__time {
-  padding-left: 4rem; }
+  .b-header__main-logo a {
+    text-decoration: none;
+    color: #fff; }
 
-.b-header__main-logo__x {
-  color: #8A96A6; }
+  .b-header__main-logo h1 {
+    font-family: 'Roboto', sans-serif; }
 
-.b-header__main-nav {
-  padding: 2em; }
+  .b-header__main-logo--intro {
+    position: absolute;
+    left: 50%;
+    top: 480%;
+    transform: translate(-50%, -40%);
+    z-index: 2; }
 
-.b-header__main-nav-item {
-  margin: .8em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #fff; }
+  .b-header__main-logo__the {
+    display: none; }
 
-.b-header__main-nav-item a:hover {
-  color: #025A8F; }
+  .b-header__main-logo--intro .b-header__main-logo__the,
+  .b-header__main-logo--intro .b-header__main-logo__space,
+  .b-header__main-logo--intro .b-header__main-logo__time {
+    display: block; }
 
-.b-header__main-nav-item:hover {
-  background-color: #0081d2; }
+  .b-header__main-logo--intro .b-header__main-logo__space {
+    color: #025A8F; }
 
-.b-header__main-nav-item--active {
-  text-decoration: underline;
-  background-color: #025A8F;
-  padding: .2em; }
+  .b-header__main-logo--intro .b-header__main-logo__the,
+  .b-header__main-logo--intro .b-header__main-logo__time {
+    font-size: 3.2rem; }
 
-.b-header__main-nav-item--active:hover {
-  background-color: #0081d2; }
+  .b-header__main-logo--intro .b-header__main-logo__time {
+    padding-left: 4rem; }
 
-.b-header__main-nav-item--active a:hover {
-  color: #fff; }
+  .b-header__main-logo__x {
+    color: #8A96A6; }
 
+  .b-header__main-nav {
+    padding: 2em; }
+
+  .b-header__main-nav-item {
+    margin: .8em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff; }
+
+  .b-header__main-nav-item a:hover {
+    color: #025A8F; }
+
+  .b-header__main-nav-item:hover {
+    background-color: #0081d2; }
+
+  .b-header__main-nav-item--active {
+    text-decoration: underline;
+    background-color: #025A8F;
+    padding: .2em; }
+
+  .b-header__main-nav-item--active:hover {
+    background-color: #0081d2; }
+
+  .b-header__main-nav-item--active a:hover {
+    color: #fff; } }
 /*------------------------------------*\
     #TAKEOFF SECTION
 \*------------------------------------*/
@@ -518,40 +521,86 @@ h3 {
   background-size: 100vw 100vh;
   object-fit: fill;
   height: 160vh;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
+@media only screen and (min-width: 770px) {
+  .b-takeoff {
+    background-image: url(../img/sky_star.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
+    object-fit: fill;
+    height: 160vh;
+    overflow: hidden; } }
 .b-takeoff__rocket-launched {
   position: absolute;
   left: 50%;
-  bottom: 10%;
+  bottom: 45%;
   transform: translate(-10%, 0%); }
 
 .b-takeoff__rocket-launched--hidden {
-  display: none; }
+  opacity: 0; }
 
 .b-takeoff__rocket-launched img {
   width: 20%; }
 
+@media only screen and (min-width: 770px) {
+  .b-takeoff__rocket-launched {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-10%, 0%); }
+
+  .b-takeoff__rocket-launched--hidden {
+    display: none; }
+
+  .b-takeoff__rocket-launched img {
+    width: 20%; } }
 .b-takeoff__rocket {
   position: fixed;
   left: 50%;
-  bottom: -5%;
-  transform: translate(-20%, 0%);
+  bottom: 7em;
+  transform: translate(-50%, 0%);
   z-index: 0; }
 
 .b-takeoff__rocket img {
-  width: 40%; }
+  width: 100%;
+  height: 100%; }
 
 .b-takeoff__cluds {
   position: absolute;
   left: 50%;
-  bottom: 10%;
-  transform: translate(-50%, -40%);
+  bottom: 70%;
+  transform: translate(-50%, -20%);
   z-index: 1; }
+
+.b-takeoff__cluds--hidden {
+  opacity: 0; }
 
 .b-takeoff__cluds img {
   width: 100%; }
 
+@media only screen and (min-width: 770px) {
+  .b-takeoff__rocket {
+    position: fixed;
+    left: 50%;
+    bottom: -5%;
+    transform: translate(-20%, 0%);
+    z-index: 0; }
+
+  .b-takeoff__rocket img {
+    width: 40%; }
+
+  .b-takeoff__cluds {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, -40%);
+    z-index: 1; }
+
+  .b-takeoff__cluds img {
+    width: 100%; } }
 .b-takeoff__controll {
   border: 5px solid #EB593E;
   border-radius: 4px;
@@ -559,9 +608,10 @@ h3 {
   display: grid;
   grid-template-areas: 'title title title' 'timer button button';
   position: fixed;
-  width: 20em;
-  bottom: 3em;
-  right: 3em; }
+  width: 100%;
+  height: 100px;
+  bottom: 4em;
+  z-index: 10; }
 
 .b-takeoff__controll-title {
   background-color: #EB593E;
@@ -569,12 +619,10 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
   width: 100%; }
 
 .b-takeoff__controll-title h3 {
   margin: 0;
-  padding: 5px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase; }
 
@@ -593,12 +641,11 @@ h3 {
   width: 100%; }
 
 .b-takeoff__controll-btn {
-  grid-area: button;
-  height: 100px; }
+  grid-area: button; }
 
 .b-takeoff__controll-timer,
 .b-takeoff__controll-btn {
-  padding: 20px; }
+  padding: 4px; }
 
 .b-takeoff__controll-btn__button {
   display: flex;
@@ -609,6 +656,63 @@ h3 {
   height: 100%;
   width: 100%; }
 
+@media only screen and (min-width: 770px) {
+  .b-takeoff__controll {
+    border: 5px solid #EB593E;
+    border-radius: 4px;
+    background-color: rgba(235, 88, 62, 0.4);
+    display: grid;
+    grid-template-areas: 'title title title' 'timer button button';
+    position: fixed;
+    width: 20em;
+    bottom: 3em;
+    right: 3em; }
+
+  .b-takeoff__controll-title {
+    background-color: #EB593E;
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%; }
+
+  .b-takeoff__controll-title h3 {
+    margin: 0;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase; }
+
+  .b-takeoff__controll-timer {
+    grid-area: timer;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
+  .b-takeoff__controll-timer__time {
+    background-color: #EB593E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%; }
+
+  .b-takeoff__controll-btn {
+    grid-area: button;
+    height: 100px; }
+
+  .b-takeoff__controll-timer,
+  .b-takeoff__controll-btn {
+    padding: 20px; }
+
+  .b-takeoff__controll-btn__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    height: 100%;
+    width: 100%; } }
 /*------------------------------------*\
     #TIMELINE
 \*------------------------------------*/
@@ -758,7 +862,7 @@ h3 {
   flex-grow: 3; }
 
 /*------------------------------------*\
-    #TIMELINE
+    #JOIN FORM
 \*------------------------------------*/
 .b-join {
   position: relative;
@@ -902,5 +1006,38 @@ h3 {
 .b-footer__information {
   font-size: 1.2rem;
   width: 60%; }
+
+/*------------------------------------*\
+    #MOBILE MENU
+\*------------------------------------*/
+.b-mobile-menu {
+  overflow: hidden;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  max-height: 100px;
+  background-color: black; }
+
+.b-mobile-menu__main-logo {
+  position: relative;
+  transition: all .6s ease-out;
+  padding: 0.2em; }
+
+.b-mobile-menu__main-logo a {
+  text-decoration: none;
+  color: #fff; }
+
+.b-mobile-menu__main-logo h1 {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  font-size: 2.5rem; }
+
+.b-mobile-menu__main-logo__time {
+  display: block; }
+
+.b-mobile-menu__main-logo__x {
+  color: #8A96A6; }
 
 /*# sourceMappingURL=main.css.map */

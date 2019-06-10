@@ -27,7 +27,74 @@
   </header> <!-- HEADER end  -->
 
   <main class="o-join-container">
-  
+    <section class="b-join">
+      <header class="b-join__header">
+        <h2 class="b-join__heading">Yes, we are going to Mars</h2>
+        <h3 class="b-join__subheading">But not because it is easy</h3>
+      </header>
+    
+      <form action="" class="b-join__form">
+        <h2>We need the bright and the brave</h2>
+        <h3>Are you one of them?</h3>
+        <h3>Apply today!</h3>
+
+        <div class="b-join__form__form-group">
+          <label for="join-first_name">First name <span>(And any middle names)</span></label>
+          <input class="b-join__form__form-group__input" type="text" name="join-first_name" id="join-first_name" required pattern=".{1,}">
+          <span id="join-first_name-message" class="b-join__form__error-message">&#9888; We need your first name.</span>
+        </div>
+
+        <div class="b-join__form__form-group">
+          <label for="last_name">Last name</label>
+          <input class="b-join__form__form-group__input" type="text" name="last_name" id="join-last_name" required pattern=".{1,}">
+          <span id="join-last_name-message" class="b-join__form__error-message">&#9888; We need your last name.</span>        
+        </div>
+
+        <div class="b-join__form__form-group">
+          <p>Sex</p>
+          <small>(We are going to Mars, so we need to know)</small>
+          <div class="b-join__form__form-group__input">
+            <div>
+              <input type="radio" name="join-sex" id="join-sex-male" value="male" required>
+              <label for="join-sex-male">Male</label>
+            </div>
+            <div class="b-join__join-sex-female">
+              <input class="b-join__form__form-group__input" type="radio" name="join-sex" id="join-sex-female" value="female">
+              <span id="join-sex-message" class="b-join__form__error-message">&#9888; We need to know your sex.</span>
+              <label for="join-sex-female">Female</label>
+            </div>
+          </div>
+          <div class="b-join__identifying-gender__container">
+            <input type="checkbox" name="join-gender" id="join-gender">
+            <label for="join-gender">"My identifying gender is different"</label>
+            <div class="b-join__identifying-gender">
+              <p>You are not required to inform about this</p>
+              <label for="join-identifying-gender">What is your gender?</label>
+              <input type="text" id="join-identifying-gender" name="join-identifying-gender">
+            </div>
+          </div>
+        </div>
+       
+        <div class="b-join__form__form-group">
+          <label for="join-dob">Date of birth</label>
+          <input class="b-join__form__form-group__input" type="date" name="join-dob" id="join-dob" required>
+          <span id="join-dob-message" class="b-join__form__error-message">&#9888; We need your age.</span>
+        </div>
+
+        <div class="b-join__form__form-group">
+          <label for="join-email">Email</label>
+          <small>You will receive a confirmation email after submitting the form</small>
+          <input class="b-join__form__form-group__input" type="email" name="join-email" id="join-email" required attern=".{1,}">
+          <span id="join-email-message" class="b-join__form__error-message">&#9888; We need your email address in order to contact you.</span>
+        </div>
+
+        <input class="b-join__form__submit btn btn__cta" type="submit" value="Apply to join">
+
+      </form>
+      <figure class="b-join__mars-bcg">
+        <img src="../img/mars_half.png" alt="The red planet Mars">
+      </figure>
+    </section>
   </main>
 
   <footer class="b-footer"> <!-- Main footer start  -->

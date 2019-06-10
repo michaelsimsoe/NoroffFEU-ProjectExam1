@@ -1,0 +1,119 @@
+/*------------------------------------*\
+    #TIMELINE
+\*------------------------------------*/
+.b-join {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.b-join__header {
+  z-index: 2;
+  margin-bottom: 3em;
+}
+
+.b-join__heading {
+  margin-bottom: 0;
+  font-size: 4.2rem;
+}
+.b-join__subheading {
+  margin-top: 0;
+}
+
+.b-join__form {
+  background: linear-gradient(180deg, rgba(21, 0, 61, 0.9), rgba(21, 0, 61, 0.6));
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  padding: 2em;
+  margin-bottom: 2em;
+}
+
+.b-join__form__form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2em;
+}
+
+.b-join__form__form-group p {
+  margin-bottom: 0;
+}
+
+.b-join__form__form-group__input {
+  margin-bottom: 1.9rem;
+}
+
+.b-join__form__error-message {
+  display: none;
+}
+
+.invalid.b-join__form__form-group__input {
+  margin-bottom: 0;
+  border: 4px solid rgba(235, 89, 62, .5);
+}
+.invalid.b-join__form__form-group__input + .b-join__form__error-message {
+  display: block;
+}
+
+.b-join__form h2,
+.b-join__form h3 {
+  margin: .2em 0 0 0;
+}
+
+.b-join__form h2 {
+  margin-bottom: .5em;
+}
+
+.b-join__form h3:last-of-type {
+  margin-bottom: 1.2em;
+}
+
+/* To get the warning under the radio buttons to go below them both*/
+.b-join__join-sex-female {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.b-join__join-sex-female span {
+  order: 3;
+  flex: 1 0 100%;
+}
+
+.b-join__join-sex-female
+
+.b-join__identifying-gender__container {
+  margin-top: .5em;
+}
+
+.b-join__identifying-gender {
+  display: none;
+  // display: flex;
+  flex-direction: column;
+}
+
+.b-join__identifying-gender p {
+  margin: .4em 0 .2em;
+  font-style: italic;
+}
+
+.b-join__form__submit {
+  margin-top: 1.5em;
+}
+
+.b-join__mars-bcg {
+  position: fixed;
+  bottom: -10px;
+  margin:0;
+  width: 90%;
+  z-index: 1;
+}
+
+.b-join__mars-bcg img {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}

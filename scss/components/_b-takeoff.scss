@@ -59,7 +59,7 @@
 .b-takeoff__rocket {
   position: fixed;
   left: 50%;
-  bottom: 7em;
+  bottom: 5em;
   transform: translate(-50%, 0%);
   z-index: 0;
 }
@@ -126,6 +126,7 @@
   height: 100px;
   bottom: 4em;
   z-index: 10;
+  transition: all .4s ease;
 }
 
 .b-takeoff__controll-title {

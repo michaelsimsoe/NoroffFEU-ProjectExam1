@@ -8,17 +8,19 @@
   <title>The SpaceX Timeline</title>
 </head>
 <body>
-  <nav class="b-mobile-menu"> <!-- Mobile Menu start  -->
+  <p id="viewport">SPAN</p>
+  <nav class="b-mobile-menu b-mobile--init"> <!-- Mobile Menu start  -->
     <div class="b-mobile-menu__main-logo">
       <a href="/" class="">
-        <h1>
+        <h1 class="b-mobile-menu__main-logo--init">
           <span class="b-mobile-menu__main-logo__space">Space</span><span class="b-mobile-menu__main-logo__x">X</span> 
           <span class="b-mobile-menu__main-logo__time"> Timeline</span>
         </h1>
       </a>
     </div>
-    <a href="/" class="">Timeline</a>
-    <a href="/" class="">Join</a>
+    <a href="/" class="b-mobile-menu__link b-mobile-menu__link--active b-mobile--init">Timeline</a>
+    <a href="/" class="b-mobile-menu__link">Timetable</a>
+    <a href="/" class="b-mobile-menu__link">Join</a>
   </nav> <!-- Mobile Menu start  -->
   <header class="b-header b-header--intro"> <!-- HEADER start  -->
     <div class="b-header__main-logo b-header__main-logo--intro">
@@ -64,12 +66,10 @@
     
   </section> <!-- Herosection end  -->
 
-  
-
-  <main class="o-main-container"> <!-- Main container start  -->
+  <main class="o-main-container" id="main-container"> <!-- Main container start  -->
     <section class="b-timeline" id="timeline"> <!-- Timeline start  -->
       <div class="b-timeline__path"></div>
-      <div class="b-timeline__rocket">
+      <div id="timeline-rocket" class="b-timeline__rocket b-timeline__rocket--hidden">
         <img src="img/rocket.png" alt="A Falcon rocket in space">
       </div>
       <div class="b-timeline__mars">
@@ -84,8 +84,6 @@
       </div>
     </section> <!-- Timeline end  -->
 
-    <aside class="b-timeline-minimap"> <!-- Minimap start  -->
-    </aside> <!-- Minimap end  -->
   </main> <!-- Main container end  -->
 
   <footer class="b-footer"> <!-- Main footer start  -->

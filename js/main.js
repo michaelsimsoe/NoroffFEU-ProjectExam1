@@ -148,11 +148,18 @@ var clouds = document.querySelector('.b-takeoff__cluds');
 var launchedRocket = document.querySelector('.b-takeoff__rocket-launched');
 var groundRocket = document.querySelector('.b-takeoff__rocket');
 var logo = document.querySelector('.b-header__main-logo');
-console.log(clouds);
 var header = document.querySelector('.b-header');
+
+var launchControll = document.querySelector('.b-takeoff__controll');
+
+var mobileMenu = document.querySelector('.b-mobile-menu');
+var mobileMenuInitLogo = document.querySelector(
+  '.b-mobile-menu__main-logo a h1'
+);
+var activeMobileLink = document.querySelector('.b-mobile-menu__link--active');
+
 var lastScrollTop = 0;
 var mediaQuery770 = window.matchMedia('(min-width: 770px)');
-console.log(mediaQuery770);
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
 window.addEventListener(
   'scroll',
@@ -174,9 +181,17 @@ window.addEventListener(
     if (st > 11) {
       logo.classList.remove('b-header__main-logo--intro');
       header.classList.remove('b-header--intro');
+      mobileMenu.classList.remove('b-mobile--init');
+      mobileMenuInitLogo.classList.remove('b-mobile-menu__main-logo--init');
+      launchControll.style.display = 'none';
+      activeMobileLink.classList.remove('b-mobile--init');
     } else {
       logo.classList.add('b-header__main-logo--intro');
       header.classList.add('b-header--intro');
+      mobileMenu.classList.add('b-mobile--init');
+      mobileMenuInitLogo.classList.add('b-mobile-menu__main-logo--init');
+      launchControll.style.display = 'grid';
+      activeMobileLink.classList.add('b-mobile--init');
     }
 
     if (mediaQuery770.matches) {
@@ -228,3 +243,35 @@ launchBtn.addEventListener('click', function(e) {
     inline: 'nearest'
   });
 });
+
+var timelineRocket = document.getElementById('timeline-rocket');
+
+if (!!window.IntersectionObserver) {
+  console.log('observing');
+  let observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(entry);
+          addRocket();
+          console.log('REMOVING', timelineRocket);
+        } else {
+          document
+            .getElementById('timeline-rocket')
+            .classList.add('b-timeline__rocket--hidden');
+        }
+      });
+    },
+    {
+      rootMargin: '0px 0px -50% 0px'
+    }
+  );
+  observer.observe(document.querySelector('#timeline'));
+}
+
+function addRocket() {
+  console.log('ADDDDDDINNNG!');
+  document
+    .getElementById('timeline-rocket')
+    .classList.remove('b-timeline__rocket--hidden');
+}

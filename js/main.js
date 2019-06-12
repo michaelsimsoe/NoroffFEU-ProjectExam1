@@ -166,16 +166,20 @@ window.addEventListener(
   function() {
     // or window.addEventListener("scroll"....
     var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    var moveValue;
     var scaleValue = st / 100;
-    console.log(st);
+    // console.log(st);
 
     if (mediaQuery770.matches) {
       clouds.style.transform = `translate(-50%,${-40 +
-        Math.floor((st / 10) * 6)}%) scale(${1 + Number(scaleValue)})`;
+        Math.floor((st / 10) * 4)}%) scale(${1 + Number(scaleValue)})`;
     } else {
       scaleValue = st / 10;
-      clouds.style.transform = `translate(-50%,${-40 +
-        Math.floor(st * 5)}%) scale(${1 + Number(scaleValue)})`;
+      moveValue = -40 + Math.floor(st * 5);
+      if (scaleValue > 6) scaleValue = 6;
+      if (moveValue > 1000) moveValue = 1000;
+      clouds.style.transform = `translate(-50%,${moveValue}%) scale(${1 +
+        Number(scaleValue)})`;
     }
     // Could this be solved with the intersection observer?
     if (st > 11) {
@@ -219,7 +223,7 @@ window.addEventListener(
         clouds.classList.remove('b-takeoff__cluds--hidden');
       }
     } else {
-      if (st > 550) {
+      if (st > 340) {
         clouds.classList.add('b-takeoff__cluds--hidden');
       } else {
         clouds.classList.remove('b-takeoff__cluds--hidden');
@@ -231,18 +235,57 @@ window.addEventListener(
   false
 );
 
-// clouds.style.display = 'none';
 const launchBtn = document.getElementById('launch_button');
 const timeline = document.getElementById('timeline');
+const timelineTop = timeline.getBoundingClientRect().top;
+var timer = document.querySelector('.b-takeoff__controll-timer__time');
 
+console.log(timeline.offsetTop);
 launchBtn.addEventListener('click', function(e) {
   e.preventDefault();
-  timeline.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-    inline: 'nearest'
-  });
+  countDown(timer, 10);
+  console.log(timelineTop);
+  setTimeout(function() {
+    scrollDown(200, 600);
+    console.log(timelineTop);
+  }, 1000);
+  console.log('Scrolling');
 });
+
+function scrollDown(px, stop) {
+  if (document.documentElement.scrollTop >= stop) {
+    scrollIntoView();
+    return;
+  }
+  if (document.documentElement.scrollTop === 200) {
+    console.log('Removes cloud');
+    clouds.classList.add('b-takeoff__cluds--hidden');
+  }
+  setTimeout(function() {
+    document.documentElement.scrollTop += px;
+    scrollDown(px + 10, stop);
+  }, 100);
+}
+
+function scrollIntoView() {
+  setTimeout(function() {
+    console.log('Scrolling into view');
+    window.scrollTo({
+      top: timelineTop,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }, 400);
+}
+
+function countDown(el, time) {
+  if (time < 0) return scrollDown(200, 600);
+  console.log(el, time);
+  setTimeout(() => {
+    el.innerHTML = `${time.toString()}:00`;
+    countDown(el, time - 1);
+  }, 100);
+}
 
 var timelineRocket = document.getElementById('timeline-rocket');
 

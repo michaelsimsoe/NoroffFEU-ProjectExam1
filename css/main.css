@@ -370,7 +370,8 @@ template {
 \*------------------------------------*/
 html, body {
   color: #fff;
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+  overflow: auto; }
 
 html {
   box-sizing: border-box;
@@ -515,14 +516,14 @@ h3 {
     #TAKEOFF SECTION
 \*------------------------------------*/
 .b-takeoff {
-  background-image: url(../img/sky_star.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100vw 100vh;
-  object-fit: fill;
   height: 160vh;
   overflow: hidden;
   position: relative; }
+
+.b-takeoff__bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh; }
 
 @media only screen and (min-width: 770px) {
   .b-takeoff {
@@ -634,9 +635,10 @@ h3 {
   justify-content: center; }
 
 .b-takeoff__controll-timer__time {
+  align-items: center;
   background-color: #EB593E;
   display: flex;
-  align-items: center;
+  font-size: 3rem;
   justify-content: center;
   height: 100%;
   width: 100%; }
@@ -744,16 +746,28 @@ h3 {
     left: 50%;
     bottom: 0; } }
 .b-timeline__rocket {
-  position: absolute;
-  left: 48%;
-  top: 20px;
-  z-index: 20; }
-
-.b-timeline__rocket--hidden {
-  display: none; }
+  position: fixed;
+  left: -5%;
+  top: 0%;
+  z-index: 20;
+  transform: translateX(86%); }
 
 .b-timeline__rocket img {
-  width: 10%; }
+  width: 10%;
+  animation: flydown 0.8s forwards; }
+
+@keyframes flydown {
+  0% {
+    transform: translateY(0%);
+    opacity: 0; }
+  10% {
+    transform: translateY(50%);
+    opacity: .2; }
+  100% {
+    transform: translateY(100%);
+    opacity: 1; } }
+.b-timeline__rocket--hidden {
+  display: none; }
 
 .b-timeline__item {
   border-left: 3px solid #025A8F;
@@ -890,13 +904,12 @@ h3 {
   .b-timeline__item__launch {
     display: none; } }
 .b-timeline__mars {
-  grid-column-start: 0;
-  grid-column-end: 3;
   position: relative;
   order: 2;
   display: flex;
   justify-content: center;
-  z-index: 6; }
+  z-index: 20;
+  height: 40vh; }
 
 .b-timeline__mars img {
   width: 100%;
@@ -909,11 +922,11 @@ h3 {
 
 .b-timeline__mars__text h2,
 .b-timeline__mars__text h3 {
-  margin: 0; }
+  margin: 0 1em; }
 
 .b-timeline__mars__btn {
   position: absolute;
-  bottom: 50%; }
+  bottom: 20%; }
 
 .b-timeline__mars__btn a {
   text-transform: uppercase;
@@ -925,6 +938,7 @@ h3 {
     position: relative;
     order: 2;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     z-index: 6; }
 
@@ -949,20 +963,24 @@ h3 {
     text-transform: uppercase;
     font-size: 2rem;
     padding: 1.2em; } }
+.b-timeline__mars__timetable-link {
+  position: absolute;
+  bottom: 2%;
+  color: #fff;
+  font-size: 1.4rem; }
+
 #viewport {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 90%;
   right: 0;
-  background-color: red;
   margin: 0;
+  opacity: 0;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
-  cursor: default;
-  z-index: 100; }
+  user-select: none; }
 
 /*------------------------------------*\
     #SINGLE
@@ -1089,7 +1107,8 @@ h3 {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  z-index: 6; }
+  z-index: 6;
+  padding: .5em; }
 
 .b-footer a {
   text-decoration: none;
@@ -1101,30 +1120,53 @@ h3 {
 .b-footer__nav {
   display: flex;
   width: 100%;
-  justify-content: space-around; }
+  justify-content: space-around;
+  margin-bottom: 1em; }
 
 .b-footer__nav__links {
   display: flex;
   flex-direction: column; }
 
+.b-footer__nav__links__heading {
+  font-size: 1.6rem;
+  height: 2em; }
+
 .b-footer__nav__links__link {
-  margin-top: .5em; }
+  margin-top: .5em;
+  font-size: 1.2rem; }
 
 .b-footer__nav__links__link:first-child {
   margin-top: 0; }
 
+@media only screen and (min-width: 770px) {
+  .b-footer__nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-around; }
+
+  .b-footer__nav__links {
+    display: flex;
+    flex-direction: column; }
+
+  .b-footer__nav__links__link {
+    margin-top: .5em; }
+
+  .b-footer__nav__links__link:first-child {
+    margin-top: 0; } }
 .b-footer__social-links {
   display: flex; }
 
 .b-footer__social-links__link {
-  margin-left: 1em; }
+  margin: .2em; }
 
 .b-footer__social-links__link img {
   width: 100%; }
 
 .b-footer__information {
   font-size: 1.2rem;
-  width: 60%; }
+  width: 100%;
+  margin: 0 .5em;
+  padding-bottom: 100px; }
 
 /*------------------------------------*\
     #MOBILE MENU

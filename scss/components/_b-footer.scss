@@ -2,7 +2,7 @@
     #FOOTER
 \*------------------------------------*/
 
-.b-footer{
+.b-footer {
   position: relative;
   background-color: black;
   min-height: 400px;
@@ -11,8 +11,13 @@
   align-items: center;
   width: 100%;
   z-index: 6;
+  padding: .5em;
 }
 
+@media only screen and (min-width: 770px) {
+  .b-footer {
+  }
+}
 .b-footer a {
   text-decoration: none;
   color: #fff;
@@ -26,6 +31,7 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+  margin-bottom: 1em;
 }
 
 .b-footer__nav__links {
@@ -33,20 +39,47 @@
   flex-direction: column;
 }
 
+.b-footer__nav__links__heading {
+  font-size: 1.6rem;
+  height: 2em;
+}
+
 .b-footer__nav__links__link {
   margin-top: .5em;
+  font-size: 1.2rem;
 }
 
 .b-footer__nav__links__link:first-child {
   margin-top: 0;
 }
 
+@media only screen and (min-width: 770px) {
+  .b-footer__nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .b-footer__nav__links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .b-footer__nav__links__link {
+    margin-top: .5em;
+  }
+
+  .b-footer__nav__links__link:first-child {
+    margin-top: 0;
+  }
+}  
+
 .b-footer__social-links {
   display: flex;
 }
 
 .b-footer__social-links__link {
-  margin-left: 1em;
+  margin: .2em;
 }
 
 .b-footer__social-links__link img {
@@ -55,5 +88,7 @@
 
 .b-footer__information {
   font-size: 1.2rem;
-  width: 60%;
+  width: 100%;
+  margin: 0 .5em;
+  padding-bottom: 100px;
 }

@@ -8,6 +8,7 @@
   <title>The SpaceX Timeline</title>
 </head>
 <body>
+  <a tabindex="1" class="skip-main" href="#maincontent">Skip to main content</a>
   <p id="viewport">SPAN</p>
   <nav class="b-mobile-menu b-mobile--init"> <!-- Mobile Menu start  -->
     <div class="b-mobile-menu__main-logo">
@@ -24,7 +25,7 @@
   </nav> <!-- Mobile Menu start  -->
   <header class="b-header b-header--intro"> <!-- HEADER start  -->
     <div class="b-header__main-logo b-header__main-logo--intro">
-      <a href="/">
+      <a tabindex="2" href="/">
         <h1>
           <span class="b-header__main-logo__the">The</span>
           <span class="b-header__main-logo__space">Space<span class="b-header__main-logo__x">X</span></span>
@@ -33,9 +34,9 @@
       </a>
     </div>
     <nav class="b-header__main-nav">
-      <a href="" class="b-header__main-nav-item b-header__main-nav-item--active">Timeline</a>
-      <a href="about" class="b-header__main-nav-item">About SpaceX</a>
-      <a href="join" class="b-header__main-nav-item">Join us to Mars</a>
+      <a tabindex="3" href="/" class="b-header__main-nav-item b-header__main-nav-item--active">Timeline</a>
+      <a tabindex="4" href="timetable" class="b-header__main-nav-item">Timetable</a>
+      <a tabindex="5" href="join" class="b-header__main-nav-item">Join us</a>
     </nav>
   </header> <!-- HEADER end  -->
 
@@ -61,13 +62,13 @@
         </div>
       </div>
       <div class="b-takeoff__controll-btn">
-        <a href="#timeline" id="launch_button" class="btn btn__cta b-takeoff__controll-btn__button">Launch</a>
+        <a tabindex="6" href="#timeline" id="launch_button" class="btn btn__cta b-takeoff__controll-btn__button">Launch</a>
       </div>  
     </div>
     
   </section> <!-- Herosection end  -->
 
-  <main class="o-main-container" id="main-container"> <!-- Main container start  -->
+  <main id="maincontent" class="o-main-container" id="main-container"> <!-- Main container start  -->
     <section class="b-timeline" id="timeline"> <!-- Timeline start  -->
       <div class="b-timeline__path"></div>
       <div id="timeline-rocket" class="b-timeline__rocket b-timeline__rocket--hidden">
@@ -79,9 +80,9 @@
           <h3>Are you comming with us?</h3>
         </div>
         <div class="b-timeline__mars__btn">
-          <a href="join" class="btn btn__cta">Apply to join</a>
+          <a tabindex="99" href="join" class="btn btn__cta">Apply to join</a>
         </div>
-        <a href="timetable" class="b-timeline__mars__timetable-link">Or see some more events</a>
+        <a tabindex="100" href="timetable" class="b-timeline__mars__timetable-link">Or see some more events</a>
         <img src="img/mars_half.png" alt="The red planet Mars">
       </div>
     </section> <!-- Timeline end  -->

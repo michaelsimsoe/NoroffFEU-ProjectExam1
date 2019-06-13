@@ -38,8 +38,8 @@ fetch('https://api.spacexdata.com/v3/history')
       .then(() => {
         var sorted = eventArray.sort((a, b) => (a.date > b.date ? 1 : -1));
         let side = 'left';
-        sorted.forEach(item => {
-          makeDisplayItem(item, side);
+        sorted.forEach((item, index) => {
+          makeDisplayItem(item, side, index);
           if (item.isHistoryEvent) {
             side === 'left' ? (side = 'right') : (side = 'left');
           }
@@ -97,7 +97,7 @@ function makeLaunchElement(launch) {
   };
 }
 
-function makeDisplayItem(item, side = null) {
+function makeDisplayItem(item, side = null, index) {
   container.innerHTML += `
     <article class="
     b-timeline__item
@@ -127,8 +127,8 @@ function makeDisplayItem(item, side = null) {
             '</p>'
           : ''
       }
-      <a href="/single/?type=${item.eventType}&id=${
-    item.id
+      <a href="/single/?type=${item.eventType}&id=${item.id}" tabindex="${
+    index == 4 ? '7' : ''
   }" class="btn btn__cta b-timeline__item__btn">Read More</a>
       </div>
     </article>
@@ -171,8 +171,14 @@ window.addEventListener(
     // console.log(st);
 
     if (mediaQuery770.matches) {
-      clouds.style.transform = `translate(-50%,${-40 +
-        Math.floor((st / 10) * 4)}%) scale(${1 + Number(scaleValue)})`;
+      scaleValue = st / 10;
+      moveValue = -40 + Math.floor(st * 5);
+      if (scaleValue > 7) scaleValue = 7;
+      if (moveValue > 1100) moveValue = 1100;
+      clouds.style.transform = `translate(-50%,${moveValue}%) scale(${1 +
+        Number(scaleValue)})`;
+      // clouds.style.transform = `translate(-50%,${-40 +
+      //   Math.floor((st / 10) * 4)}%) scale(${1 + Number(scaleValue)})`;
     } else {
       scaleValue = st / 10;
       moveValue = -40 + Math.floor(st * 5);
@@ -199,7 +205,7 @@ window.addEventListener(
     }
 
     if (mediaQuery770.matches) {
-      if (st > 170) {
+      if (st > 90) {
         groundRocket.classList.add('b-takeoff__rocket-launched--hidden');
         launchedRocket.classList.remove('b-takeoff__rocket-launched--hidden');
       } else {

@@ -13,7 +13,7 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
   }  
 }
 
@@ -32,6 +32,7 @@
     min-height: 100%;
     left: 50%;
     bottom: 0;
+    width: 1%;
   }  
 }
 
@@ -39,7 +40,7 @@
   position: fixed;
   left: -5%;
   top: 0%;
-  z-index: 20;
+  z-index: 6;
   transform: translateX(86%);
 }
 
@@ -58,7 +59,47 @@
  display: none;
 }
 
+@media only screen and (min-width: 723px) {
+  .b-timeline__rocket {
+    left: -4%;
+  }
+}
 
+@media only screen and (min-width: 730px) {
+  .b-timeline__rocket {
+    left: -3%;
+  }
+}
+
+@media only screen and (min-width: 741px) {
+  .b-timeline__rocket {
+    left: -2%;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .b-timeline__rocket {
+    left: -1%;
+  }
+}
+
+@media only screen and (min-width: 757px) {
+  .b-timeline__rocket {
+    left: 0%;
+  }
+}
+
+@media only screen and (min-width: 763px) {
+  .b-timeline__rocket {
+    left: 1%;
+  }
+}
+
+@media only screen and (min-width: 763px) {
+  .b-timeline__rocket {
+    left: 1%;
+  }
+}
 
 .b-timeline__item {
   border-left: 3px solid #025A8F;
@@ -68,26 +109,52 @@
   width: 80%;
   height: 100%;
   margin: 1em 0 1em .5em;
+  z-index: 7;
 }
 
 @media only screen and (min-width: 770px) {
   .b-timeline__item {
-    background-color: rgb(0, 0, 0);
-    border: 5px solid #025A8F;
     display: flex;
     width: 30%;
-    height: 100%;
     margin: 5em 5em;
   } 
+
+  .b-timeline__rocket {
+      right: 46%;
+  }
+
+  .b-timeline__rocket img {
+      width: 16%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .b-timeline__rocket {
+      right: 45%;
+      top: -8%;
+  }
+
+  .b-timeline__rocket img {
+      width: 12%;
+  }
 }
 
 @media only screen and (min-width: 770px) {
+  
+  .b-timeline__item__event-left {
+    align-self: flex-start;
+  }
+
+  .b-timeline__item__event-right {
+    align-self: flex-end;
+  }
+
   .b-timeline__item__event-left::after {
     content: "";
     position: relative;
-    height: 5.1em;
-    left: 10%;
-    top: 30px;
+    height: 3.7em;
+    left: 18%;
+    top: 48px;
     border: 2px solid #025A8F;
     transform: rotate(90deg);
     margin-left: -4px;
@@ -96,14 +163,138 @@
   .b-timeline__item__event-right::before {
     content: "";
     position: relative;
-    height: 5em;
-    right: 9%;
-    top: 30px;
+    height: 3.7em;
+    right: 32px;
+    top: 50px;
     border: 2px solid #025A8F;
     transform: rotate(90deg);
     margin-left: -4px;
   } 
 }
+
+@media only screen and (min-width: 784px) {
+  .b-timeline__item__event-left::after {
+    height: 3.9em;
+  }
+
+  .b-timeline__item__event-right::before {
+    height: 3.9em;
+  }
+}
+@media only screen and (min-width: 790px) {
+  .b-timeline__item__event-left::after {
+    height: 4em;
+  }
+
+  .b-timeline__item__event-right::before {
+    height: 4em;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .b-timeline__item__event-left::after {
+    height: 4.2em;
+  }
+
+  .b-timeline__item__event-right::before {
+    height: 4.2em;
+    right: 36px;
+  }
+}
+
+$mqs:     810px 820px 830px 840px 850px 860px 870px 880px 890px 900px;
+$heights: 4.2em 4.3em 4.4em 4.5em 4.6em 4.7em 4.8em 4.9em 5.0em 5.1em;
+$left:    18%   18%   18%   19%   19%   19%   20%   20%   20%   20%;
+$right:   18%   18%   18%   17%   17%   17%   17%   17%   18%   18%;
+$top:     51px  52px  52px  53px  53px  54px  28px  27px  22px  20px;
+
+@for $i from 1 through length($mqs) {
+  $media: nth($mqs, $i);
+  $h: nth($heights, $i);
+  $l: nth($left, $i);
+  $r: nth($right, $i);
+  $t: nth($top, $i);
+  @media only screen and (min-width: $media) {
+    .b-timeline__item__event-left::after {
+      height: $h;
+      left: $l;
+      top: $t;
+    }
+    .b-timeline__item__event-right::before {
+      height: $h;
+      right: $r;
+      top: $t;
+    }
+  }
+}
+
+$mqs:     910px 930px 950px 970px 990px 1010px 1030px 1050px 1080px 1100px;
+$heights: 5.2em 5.5em 5.6em 5.7em 6.0em 6.2em  6.5em  6.8em  7.1em  7.3em;
+$left:    20%    21%  21%   22%   21%   22%    22%    22%    23%    22%;
+$right:   18%   18%   19%   17%   17%   17%    17%    17%    19%    20%;
+$top:     28px  27px  22px  20px  20px  20px   20px   16px   12px   10px;
+
+@for $i from 1 through length($mqs) {
+  $media: nth($mqs, $i);
+  $h: nth($heights, $i);
+  $l: nth($left, $i);
+  $r: nth($right, $i);
+  $t: nth($top, $i);
+  @media only screen and (min-width: $media) {
+    .b-timeline__item__event-left::after {
+      height: $h;
+      left: $l;
+      top: $t;
+    }
+    .b-timeline__item__event-right::before {
+      height: $h;
+      right: $r;
+      top: $t;
+    }
+  }
+}
+
+$mqs:     1100px 1140px 1160px 1200px 1250px 1300px 1350px 1400px 1450px 1500px;
+$heights: 7.3em  7.8em  8.2em  8.6em  9.1em  9.7em  10.3em 10.9em 11.5em 12.1em;
+$left:    23%    23%    23%    24%    24%    24%    24%    25%    25%    25%;
+$right:   18%    18%    20%    19%    22%    23%    23%    24%    23%    25%;
+$top:     10px   10px   10px   10px   10px   10px   10px   10px   10px   10px;
+
+@for $i from 1 through length($mqs) {
+  $media: nth($mqs, $i);
+  $h: nth($heights, $i);
+  $l: nth($left, $i);
+  $r: nth($right, $i);
+  $t: nth($top, $i);
+  @media only screen and (min-width: $media) {
+    .b-timeline__item__event-left::after {
+      height: $h;
+      left: $l;
+      top: $t;
+    }
+    .b-timeline__item__event-right::before {
+      height: $h;
+      right: $r;
+      top: $t;
+    }
+  }
+}
+
+@media only screen and (min-width: 1520px) {
+  .b-timeline__item__event-left::after {
+      content: none;
+  }
+  .b-timeline__item__event-right::before {
+    content: none;
+  }
+
+  .b-timeline__item__event-left,
+  .b-timeline__item__event-right {
+    align-self: auto;
+  }
+}
+
+
+@media only screen and (min-width: 770px) {}
 
 .b-timeline__item__content {
   flex-grow: 2;
@@ -137,6 +328,13 @@
   }
 }
 
+@media only screen and (min-width: 1200px) {
+  .b-timeline__item__date {
+    font-size: 1.8rem;
+    padding: .4rem;
+  }
+}
+
 .b-timeline__item__title {
   font-size: 1.6rem;
   padding: 0.3rem;
@@ -148,6 +346,13 @@
     font-size: 1.6rem;
     padding: 0.3rem;
     margin: 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .b-timeline__item__title {
+    font-size: 2rem;
+    padding: 0.4rem;
   }
 }
 
@@ -165,8 +370,16 @@
   }
 }
 
+@media only screen and (min-width: 1200px) {
+  .b-timeline__item__text {
+    font-size: 1.6rem;
+    padding: 0.4rem;
+  }
+}
+
 .b-timeline__item__btn {
   display: block;
+  text-align: center;
 }
 
 @media only screen and (min-width: 770px) {
@@ -218,8 +431,13 @@
   display: none;
 }
 
+@media only screen and (min-width: 1520px) {
+
+}
+
 @media only screen and (min-width: 770px) {
   .b-timeline__item__img {
+    // display: block;
     flex-shrink: 1;
     width: 100%;
   }
@@ -231,6 +449,7 @@
 
 @media only screen and (min-width: 770px) {
   .b-timeline__item__img img {
+    // display: block;
     width: 100%;
     object-fit: contain;
     display: block;
@@ -241,9 +460,19 @@
   display: none;
 }
 
-@media only screen and (min-width: 770px) {
+@media only screen and (min-width: 1520px) {
   .b-timeline__item__launch {
-    display: none;
+    display: flex;
+  }
+
+  .b-timeline__item:nth-child(odd) {
+    align-self: flex-end;
+    margin-right: 12em;
+  }
+
+  .b-timeline__item:nth-child(even) {
+    align-self: flex-start;
+    margin-left: 12em;
   }
 }
 
@@ -283,6 +512,22 @@
   padding: 1.2em;
 }
 
+@media only screen and (min-width: 710px) {
+  .b-timeline__mars {
+    height: 50vh;
+  }
+
+  .b-timeline__mars__text {
+    top: 5em;
+  }
+
+  .b-timeline__mars__btn {
+    bottom: 40%;
+  }
+
+  
+}
+
 @media only screen and (min-width: 770px) {
   .b-timeline__mars {
     position: relative;
@@ -290,7 +535,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 6;
+    align-items: center;
   }
 
   .b-timeline__mars img {
@@ -321,11 +566,23 @@
   }
 }
 
+@media only screen and (min-width: 1400px) {
+  .b-timeline__mars img {
+    width: 120%;
+  } 
+}
+
 .b-timeline__mars__timetable-link {
   position: absolute;
   bottom: 2%;
   color: #fff;
   font-size: 1.4rem;
+}
+
+@media only screen and (min-width: 710px) {
+  .b-timeline__mars__timetable-link {
+    bottom: 28%;
+  } 
 }
 
 #viewport {

@@ -12,18 +12,25 @@
   z-index: 25;
 }
 
+@media only screen and (min-width: 770px) {
+  .progress {
+    top: 18%;
+  }
+}
+
 .progress--hidden {
   opacity: 0;
 }
 .b-timeline {
   position: relative;
-  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space.jpg);
+  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-sm.webp);
   display: flex;
   flex-direction: column;
 }
 
 @media only screen and (min-width: 770px) {
   .b-timeline {
+    background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-bg.webp);
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -52,14 +59,14 @@
 
 .b-timeline__rocket {
   position: fixed;
-  left: -5%;
-  top: 0%;
+  right: 11%;
+  bottom: 80%;
   z-index: 6;
   transform: translateX(86%);
 }
 
 .b-timeline__rocket img {
-  width: 10%;
+  width: 50%;
   animation: flydown 0.8s forwards; 
 }
 
@@ -71,48 +78,6 @@
 
 .b-timeline__rocket--hidden {
  display: none;
-}
-
-@media only screen and (min-width: 723px) {
-  .b-timeline__rocket {
-    left: -4%;
-  }
-}
-
-@media only screen and (min-width: 730px) {
-  .b-timeline__rocket {
-    left: -3%;
-  }
-}
-
-@media only screen and (min-width: 741px) {
-  .b-timeline__rocket {
-    left: -2%;
-  }
-}
-
-@media only screen and (min-width: 751px) {
-  .b-timeline__rocket {
-    left: -1%;
-  }
-}
-
-@media only screen and (min-width: 757px) {
-  .b-timeline__rocket {
-    left: 0%;
-  }
-}
-
-@media only screen and (min-width: 763px) {
-  .b-timeline__rocket {
-    left: 1%;
-  }
-}
-
-@media only screen and (min-width: 763px) {
-  .b-timeline__rocket {
-    left: 1%;
-  }
 }
 
 .b-timeline__item {
@@ -134,22 +99,22 @@
   } 
 
   .b-timeline__rocket {
-      right: 46%;
+      right: 50%;
   }
 
   .b-timeline__rocket img {
-      width: 16%;
+      width: 48%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .b-timeline__rocket {
-      right: 45%;
-      top: -8%;
+      right: 50%;
+      top: 0%;
   }
 
   .b-timeline__rocket img {
-      width: 12%;
+      width: 50%;
   }
 }
 

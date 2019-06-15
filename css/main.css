@@ -9,19 +9,26 @@
  * Box-sizing...........Better default `box-sizing`.
  *
  * BASE
- * Typography.............Font-face and rules.
+ * Elements.............Base HTML tags.
+ * Typography...........Font-face and rules.
  * Headings.............H1-H6 styles.
  *
  * OBJECTS
- * Wrappers.............Wrapping and constraining elements.
+ * Containers...........Wrapping and constraining elements.
+ * Buttons..............Styling for site wide buttons.
+ * Skip content.........Skip content navigation
  *
  * COMPONENTS
- * Page-head............The main page header.
- * Page-foot............The main page footer.
- * Buttons..............Button elements.
+ * Header...............The sitewide header and navigation.
+ * Mobile Menu..........The mobile navigation bar.
+ * Footer...............The sitewide footer.
+ * Takeof-section.......Hero section of the landing page.
+ * Timeline-section.....The timeline on the main page.
+ * Timetable-section....The table with all the events.
+ * Single event-section....The page for single events.
+ * Join form-section.......The form of the page.
+ * Join form-success-section...The success message after submit.
  *
- * TRUMPS
- * Text.................Text helpers.
  */
 /*------------------------------------*\
     #VARIABLES
@@ -337,73 +344,6 @@ template {
 [hidden] {
   display: none; }
 
-.o-main-container {
-  position: relative;
-  z-index: 4; }
-
-.o-single-container,
-.o-about-container,
-.o-join-container,
-.o-timetable-container,
-.o-join-success-container {
-  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space.jpg);
-  height: 100%; }
-
-@media only screen and (min-width: 770px) {
-  .o-single-container,
-  .o-about-container,
-  .o-join-container,
-  .o-timetable-container,
-  .o-join-success-container {
-    padding-top: 130px; } }
-/*------------------------------------*\
-    #BUTTONS
-\*------------------------------------*/
-.btn {
-  text-decoration: none;
-  font-size: 1.6rem;
-  padding: 0.6em; }
-
-.btn__cta {
-  color: #fff;
-  background-color: #F28705;
-  border: none; }
-
-.btn__cta:hover {
-  background-color: #d57602; }
-
-/*------------------------------------*\
-    #SKIP CONTENT LINK
-\*------------------------------------*/
-/* 
- * https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/
- * https://www.w3.org/TR/WCAG20-TECHS/G1.html
-*/
-a.skip-main {
-  left: -999px;
-  position: absolute;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  z-index: -999; }
-
-a.skip-main:focus, a.skip-main:active {
-  color: #fff;
-  background-color: #000;
-  left: auto;
-  top: 10%;
-  width: 30%;
-  height: auto;
-  overflow: auto;
-  margin: 10px 35%;
-  padding: 5px;
-  border-radius: 15px;
-  border: 4px solid var(--prim-2-55);
-  text-align: center;
-  font-size: 1.2em;
-  z-index: 999; }
-
 /*------------------------------------*\
     #ELEMENTS
 \*------------------------------------*/
@@ -463,6 +403,82 @@ h2 {
 h3 {
   font-size: 2.4rem; }
 
+.o-main-container {
+  position: relative;
+  z-index: 4; }
+
+.o-single-container,
+.o-about-container,
+.o-join-container,
+.o-timetable-container,
+.o-join-success-container {
+  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-bg.webp);
+  height: 100%; }
+
+@media only screen and (min-width: 450px) {
+  .o-single-container,
+  .o-about-container,
+  .o-join-container,
+  .o-timetable-container,
+  .o-join-success-container {
+    background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-xs.webp);
+    padding-top: 130px; } }
+@media only screen and (min-width: 770px) {
+  .o-single-container,
+  .o-about-container,
+  .o-join-container,
+  .o-timetable-container,
+  .o-join-success-container {
+    background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-sm.webp);
+    padding-top: 130px; } }
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+.btn {
+  text-decoration: none;
+  font-size: 1.6rem;
+  padding: 0.6em; }
+
+.btn__cta {
+  color: #fff;
+  background-color: #F28705;
+  border: none; }
+
+.btn__cta:hover {
+  background-color: #d57602; }
+
+/*------------------------------------*\
+    #SKIP CONTENT LINK
+\*------------------------------------*/
+/* 
+ * https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/
+ * https://www.w3.org/TR/WCAG20-TECHS/G1.html
+*/
+a.skip-main {
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999; }
+
+a.skip-main:focus, a.skip-main:active {
+  color: #fff;
+  background-color: #000;
+  left: auto;
+  top: 10%;
+  width: 30%;
+  height: auto;
+  overflow: auto;
+  margin: 10px 35%;
+  padding: 5px;
+  border-radius: 15px;
+  border: 4px solid var(--prim-2-55);
+  text-align: center;
+  font-size: 1.2em;
+  z-index: 999; }
+
 /*------------------------------------*\
     #HEADER
 \*------------------------------------*/
@@ -515,9 +531,7 @@ h3 {
   .b-header__main-logo--intro .b-header__main-logo__the,
   .b-header__main-logo--intro .b-header__main-logo__space,
   .b-header__main-logo--intro .b-header__main-logo__time {
-    display: block; }
-
-  .b-header__main-logo--intro .b-header__main-logo__space {
+    display: block;
     color: #025A8F; }
 
   .b-header__main-logo--intro .b-header__main-logo__the,
@@ -833,16 +847,48 @@ h3 {
     width: 100%; } }
 @media only screen and (min-width: 920px) {
   .b-takeoff__cluds {
-    bottom: 58%; } }
+    bottom: 50%; } }
 @media only screen and (min-width: 1100px) {
   .b-takeoff__cluds {
-    bottom: 55%; } }
+    bottom: 51%; } }
 @media only screen and (min-width: 1200px) {
   .b-takeoff__cluds {
-    bottom: 55%; } }
+    bottom: 52%; } }
 @media only screen and (min-width: 1300px) {
   .b-takeoff__cluds {
-    bottom: 70%; } }
+    bottom: 72%; } }
+.b-takeoff__sub {
+  text-align: center;
+  position: absolute;
+  bottom: 60%;
+  transform: translate(50%, -20%);
+  z-index: 1;
+  left: 50%;
+  color: rgba(21, 0, 61, 0.8);
+  animation: slides .8s ease-in-out .5s forwards; }
+
+.b-takeoff__sub--hidden {
+  opacity: 0; }
+
+@keyframes slides {
+  0% {
+    transform: translateX(50%);
+    opacity: 0; }
+  50% {
+    transform: translateX(0%);
+    opacity: .5; }
+  80% {
+    transform: translateX(-60%);
+    opacity: 1; }
+  100% {
+    transform: translateX(-50%);
+    opacity: 1; } }
+@media only screen and (min-width: 770px) {
+  .b-takeoff__sub {
+    bottom: 55%; } }
+@media only screen and (min-width: 1200px) {
+  .b-takeoff__sub {
+    bottom: 73%; } }
 .b-takeoff__controll {
   border: 5px solid #EB593E;
   border-radius: 4px;
@@ -856,6 +902,16 @@ h3 {
   z-index: 10;
   transition: all .4s ease; }
 
+.b-takeoff__controll-preparing {
+  animation: preparing 1.2s infinite; }
+
+@keyframes preparing {
+  0% {
+    background-color: rgba(235, 88, 62, 0.4); }
+  50% {
+    background-color: #eb583e; }
+  100% {
+    background-color: rgba(235, 88, 62, 0.4); } }
 .b-takeoff__controll-title {
   background-color: #EB593E;
   grid-area: title;
@@ -886,6 +942,9 @@ h3 {
 
 .b-takeoff__controll-btn {
   grid-area: button; }
+
+.b-takeoff__controll-btn__button-disabled {
+  background-color: #d0d085; }
 
 .b-takeoff__controll-timer,
 .b-takeoff__controll-btn {
@@ -947,17 +1006,21 @@ h3 {
   width: 50px;
   z-index: 25; }
 
+@media only screen and (min-width: 770px) {
+  .progress {
+    top: 18%; } }
 .progress--hidden {
   opacity: 0; }
 
 .b-timeline {
   position: relative;
-  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space.jpg);
+  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-sm.webp);
   display: flex;
   flex-direction: column; }
 
 @media only screen and (min-width: 770px) {
   .b-timeline {
+    background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-bg.webp);
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -979,13 +1042,13 @@ h3 {
     width: 1%; } }
 .b-timeline__rocket {
   position: fixed;
-  left: -5%;
-  top: 0%;
+  right: 11%;
+  bottom: 80%;
   z-index: 6;
   transform: translateX(86%); }
 
 .b-timeline__rocket img {
-  width: 10%;
+  width: 50%;
   animation: flydown 0.8s forwards; }
 
 @keyframes flydown {
@@ -1001,27 +1064,6 @@ h3 {
 .b-timeline__rocket--hidden {
   display: none; }
 
-@media only screen and (min-width: 723px) {
-  .b-timeline__rocket {
-    left: -4%; } }
-@media only screen and (min-width: 730px) {
-  .b-timeline__rocket {
-    left: -3%; } }
-@media only screen and (min-width: 741px) {
-  .b-timeline__rocket {
-    left: -2%; } }
-@media only screen and (min-width: 751px) {
-  .b-timeline__rocket {
-    left: -1%; } }
-@media only screen and (min-width: 757px) {
-  .b-timeline__rocket {
-    left: 0%; } }
-@media only screen and (min-width: 763px) {
-  .b-timeline__rocket {
-    left: 1%; } }
-@media only screen and (min-width: 763px) {
-  .b-timeline__rocket {
-    left: 1%; } }
 .b-timeline__item {
   border-left: 3px solid #025A8F;
   background-color: black;
@@ -1039,17 +1081,17 @@ h3 {
     margin: 5em 5em; }
 
   .b-timeline__rocket {
-    right: 46%; }
+    right: 50%; }
 
   .b-timeline__rocket img {
-    width: 16%; } }
+    width: 48%; } }
 @media only screen and (min-width: 1200px) {
   .b-timeline__rocket {
-    right: 45%;
-    top: -8%; }
+    right: 50%;
+    top: 0%; }
 
   .b-timeline__rocket img {
-    width: 12%; } }
+    width: 50%; } }
 @media only screen and (min-width: 770px) {
   .b-timeline__item__event-left {
     align-self: flex-start; }
@@ -1821,6 +1863,9 @@ h3 {
 a.b-single__event__nav__item:hover {
   color: #fff; }
 
+a.b-single__event__nav__item:visited {
+  color: #fff; }
+
 @media only screen and (min-width: 770px) {
   .b-single__event__nav::before {
     display: none; }
@@ -1876,7 +1921,8 @@ a.b-single__event__nav__item:hover {
 
 @media only screen and (min-width: 770px) {
   .b-single__body__text {
-    width: 50%; }
+    width: 50%;
+    padding-right: .2em; }
 
   .b-single__body__links-table {
     width: 50%; }
@@ -1982,10 +2028,19 @@ a.b-single__event__nav__item:hover {
 .b-join__form h3:last-of-type {
   margin-bottom: 1.2em; }
 
+#join-first_name-label span {
+  display: block;
+  font-size: 1.4rem; }
+
 /* To get the warning under the radio buttons to go below them both*/
 .b-join__join-sex-female {
   display: flex;
   flex-wrap: wrap; }
+
+.b-join__form__form-group__sex small {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: .5rem; }
 
 .b-join__join-sex-female span {
   order: 3;
@@ -1997,14 +2052,27 @@ a.b-single__event__nav__item:hover {
 
 .b-join__identifying-gender {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  padding: .5em; }
 
 .b-join__identifying-gender__hidden {
   display: none; }
 
 .b-join__identifying-gender p {
   margin: .4em 0 .2em;
-  font-style: italic; }
+  font-style: italic;
+  font-size: 1.4rem; }
+
+.b-join__identifying-gender input {
+  margin: .2em; }
+
+.b-join__form__form-group__email small {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: .5rem; }
 
 .b-join__form__submit {
   margin-top: 1.5em; }
@@ -2025,5 +2093,15 @@ a.b-single__event__nav__item:hover {
 /*------------------------------------*\
     #JOIN SUCCESS
 \*------------------------------------*/
+.b-join-success {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.b-join-success__message {
+  background: linear-gradient(180deg, rgba(21, 0, 61, 0.9), rgba(21, 0, 61, 0.6));
+  margin: .5em;
+  padding: 1em; }
 
 /*# sourceMappingURL=main.css.map */

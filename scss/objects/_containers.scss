@@ -12,8 +12,18 @@
 .o-join-container,
 .o-timetable-container,
 .o-join-success-container {
-  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space.jpg);  
+  background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-bg.webp);  
   height: 100%;
+}
+@media only screen and (min-width: 450px) {
+   .o-single-container,
+  .o-about-container,
+  .o-join-container,
+  .o-timetable-container,
+  .o-join-success-container {
+    background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-xs.webp);  
+    padding-top: 130px;
+  }
 }
 @media only screen and (min-width: 770px) {
   .o-single-container,
@@ -21,6 +31,7 @@
   .o-join-container,
   .o-timetable-container,
   .o-join-success-container {
+    background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space-sm.webp);  
     padding-top: 130px;
   }
 }

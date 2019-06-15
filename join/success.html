@@ -4,27 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="This is a microsite containing a timeline of important SpaceX events and launches.">
+  <meta name="keywords" content="SpaceX, space, rockets, falcon, mars, astronaut, rocket launch, launch, space travel">
+  <meta name="author" content="Michael Krøyserth-Simsø">
   <link rel="stylesheet" href="../css/main.css">
-  <title>Join the Mars mission - The SpaceX Timeline</title>
+  <title>Perfext! You are about to join the Mars mission - The SpaceX Timeline</title>
 </head>
 <body>
   <a tabindex="1" class="skip-main" href="#maincontent">Skip to main content</a>
   <nav class="b-mobile-menu b-mobile--init"> <!-- Mobile Menu start  -->
     <div class="b-mobile-menu__main-logo">
-      <a href="/" class="">
+      <a href="../" class="">
         <h1 class="">
           <span class="b-mobile-menu__main-logo__space">Space</span><span class="b-mobile-menu__main-logo__x">X</span> 
           <span class="b-mobile-menu__main-logo__time"> Timeline</span>
         </h1>
       </a>
     </div>
-    <a href="/" class="b-mobile-menu__link">Timeline</a>
-    <a href="/" class="b-mobile-menu__link">Timetable</a>
-    <a href="/" class="b-mobile-menu__link b-mobile-menu__link--active">Join</a>
+    <a href="../" class="b-mobile-menu__link">Timeline</a>
+    <a href="../timetable" class="b-mobile-menu__link">Timetable</a>
+    <a href="../join" class="b-mobile-menu__link b-mobile-menu__link--active">Join</a>
   </nav>
   <header class="b-header"> <!-- HEADER start  -->
     <div class="b-header__main-logo">
-      <a href="/">
+      <a href="../">
         <h1>
           <span class="b-header__main-logo__the">The</span>
           <span class="b-header__main-logo__space">Space<span class="b-header__main-logo__x">X</span></span>
@@ -34,13 +37,18 @@
     </div>
     <nav class="b-header__main-nav">
       <a href="../" class="b-header__main-nav-item">Timeline</a>
-      <a href="../about" class="b-header__main-nav-item">About SpaceX</a>
+      <a href="../timetable" class="b-header__main-nav-item">Timetable</a>
       <a href="../join" class="b-header__main-nav-item b-header__main-nav-item--active">Join us to Mars</a>
     </nav>
   </header> <!-- HEADER end  -->
 
   <main class="o-join-success-container">
     <article class="b-join-success">
+      <section class="b-join-success__message">
+        <h2>Fantastic!</h2>
+        <h3>Thank you for being you, <span class="b-join-success__message__name"></span>!</h3>
+        <p>We will be in touch. In the meantime, stay frosty!</p>
+      </section>
     </article>
   </main>
 
@@ -65,8 +73,7 @@
         <h3 class="b-footer__nav__links__heading">Pages on this site</h3>
         <a href="../" class="b-footer__nav__links__link">Main page</a>
         <a href="../timetable" class="b-footer__nav__links__link">Timeline Table</a>
-        <a href="../single" class="b-footer__nav__links__link">Single Event (sample)</a>
-        <a href="../about" class="b-footer__nav__links__link">About SpaceX</a>
+        <a href="../single/?type=history&id=1" class="b-footer__nav__links__link">Single Event (sample)</a>
         <a href="../join" class="b-footer__nav__links__link">Apply to join the Mars mission</a>
       </div> <!-- This page end  -->
     </nav>
@@ -80,6 +87,6 @@
       <p>This site is made as an assignment in my frontend developer educations through <a href="https://www.noroff.no/">Noroff School of technology and digital media</a>. The information on this page is collected with the SpaceX API. The images and photos are from SpaceXs flicr account and <a href="https://pixabay.com/no/">pixabay.com</a></p>  
     </div>
   </footer> <!-- Main footer end  -->
-  <script src="../../js/join-success.js"></script>
+  <script src="../js/join-success.js"></script>
 </body>
 </html>

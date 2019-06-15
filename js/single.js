@@ -1,141 +1,126 @@
-const container = document.querySelector('.b-single');
+(function() {
+  var container = document.querySelector('.b-single');
 
-function getQueryStringValue(key) {
-  return decodeURIComponent(
-    window.location.search.replace(
-      new RegExp(
-        '^(?:.*[&\\?]' +
-          encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
-          '(?:\\=([^&]*))?)?.*$',
-        'i'
-      ),
-      '$1'
-    )
-  );
-}
-// variable for the id
-var id = getQueryStringValue('id');
-var eventType = getQueryStringValue('type');
+  /*
+   * Stolen from the Javascript 1 CA
+   * I am not ashamed
+   */
+  function getQueryStringValue(key) {
+    return decodeURIComponent(
+      window.location.search.replace(
+        new RegExp(
+          '^(?:.*[&\\?]' +
+            encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
+            '(?:\\=([^&]*))?)?.*$',
+          'i'
+        ),
+        '$1'
+      )
+    );
+  }
+  var id = getQueryStringValue('id');
+  var eventType = getQueryStringValue('type');
 
-if (eventType === 'history') {
-  fetchHistory(id);
-} else {
-  fetchLaunch(id, eventType);
-}
-function fetchLaunch(id, type) {
-  let launchObj = {};
-  fetch(`https://api.spacexdata.com/v3/${type}/${id}`)
-    .then(res => {
-      if (res.ok) {
-        return res;
-      }
-      console.log(res);
-      throw Error(res.statusText);
-    })
-    .then(res => res.json())
-    .then(data => {
-      var launchDate = new Date(data.launch_date_utc);
-      launchObj = {
-        title: data.mission_name,
-        details: data.details || 'No relevant information',
-        date: launchDate.toDateString(),
-        links: data.links,
-        launch: {
-          mission_name: data.mission_name,
-          details: data.details,
-          date: launchDate.toDateString(),
-          rocket: data.rocket.rocket_name,
-          launch_site: data.launch_site.site_name_long,
-          launch_links: data.links,
-          launch_success: data.launch_success,
-          isLaunch: true
+  if (eventType === 'history') {
+    fetchHistory(id);
+  } else {
+    fetchLaunch(id, eventType);
+  }
+
+  /*
+   * If the querystring say launch, use the launch API
+   */
+  function fetchLaunch(id, type) {
+    let launchObj = {};
+    fetch(`https://api.spacexdata.com/v3/${type}/${id}`)
+      .then(res => {
+        if (res.ok) {
+          return res;
         }
-      };
-      console.log(launchObj);
-      return displayHistoryEvent(launchObj);
-    })
-    .catch(
-      error => console.log(error)
-      // displayMessage(
-      //   `Sorry. An error occured while we tried to fetch the cards ${
-      //     error.statusText ? ': ' + error.statusText : '.'
-      //   }`,
-      //   'danger'
-      // )
-    );
-}
+        throw Error(res.statusText);
+      })
+      .then(res => res.json())
+      .then(data => {
+        var launchDate = new Date(data.launch_date_utc);
+        launchObj = {
+          title: data.mission_name,
+          details: data.details || 'No relevant information',
+          date: launchDate.toDateString(),
+          links: data.links,
+          isLaunch: true,
+          launch: {
+            mission_name: data.mission_name,
+            details: data.details,
+            date: launchDate.toDateString(),
+            rocket: data.rocket.rocket_name,
+            launch_site: data.launch_site.site_name_long,
+            launch_links: data.links,
+            launch_success: data.launch_success,
+            isLaunch: true
+          }
+        };
+        return displayHistoryEvent(launchObj);
+      })
+      .catch(error => console.log(error));
+  }
 
-function fetchHistory(id) {
-  const historyObj = {};
-  fetch('https://api.spacexdata.com/v3/history/' + id)
-    .then(res => {
-      console.log(res);
-      if (res.ok) {
-        return res;
-      }
-      throw Error(res.statusText);
-    })
-    .then(res => res.json())
-    .then(data => {
-      var date = new Date(data.event_date_utc);
-      historyObj.title = data.title;
-      historyObj.details = data.details;
-      historyObj.date = date.toDateString();
-      historyObj.links = data.links;
-      if (data.flight_number && data.flight_number !== undefined) {
-        fetch('https://api.spacexdata.com/v3/launches/' + data.flight_number)
-          .then(res => {
-            console.log(res);
-            if (res.ok) {
-              return res;
-            }
-            throw Error(res.statusText);
-          })
-          .then(res => res.json())
-          .then(data => {
-            var launchDate = new Date(data.launch_date_utc);
-            historyObj.isLaunch = true;
-            historyObj.launch = {
-              mission_name: data.mission_name,
-              details: data.details,
-              date: launchDate.toDateString(),
-              rocket: data.rocket.rocket_name,
-              launch_site: data.launch_site.site_name_long,
-              launch_links: data.links,
-              launch_success: data.launch_success,
-              isLaunch: true
-            };
-            console.log(historyObj);
-            return displayHistoryEvent(historyObj);
-          })
-          .catch(
-            error => console.log(error)
-            // displayMessage(
-            //   `Sorry. An error occured while we tried to fetch the cards ${
-            //     error.statusText ? ': ' + error.statusText : '.'
-            //   }`,
-            //   'danger'
-            // )
-          );
-      } else {
-        return displayHistoryEvent(historyObj);
-      }
-    })
-    .catch(
-      error => console.log(error)
-      // displayMessage(
-      //   `Sorry. An error occured while we tried to fetch the cards ${
-      //     error.statusText ? ': ' + error.statusText : '.'
-      //   }`,
-      //   'danger'
-      // )
-    );
-}
+  /*
+   * If the querystring say history, use the history API
+   */
+  function fetchHistory(id) {
+    const historyObj = {};
+    fetch('https://api.spacexdata.com/v3/history/' + id)
+      .then(res => {
+        if (res.ok) {
+          return res;
+        }
+        throw Error(res.statusText);
+      })
+      .then(res => res.json())
+      .then(data => {
+        var date = new Date(data.event_date_utc);
+        historyObj.title = data.title;
+        historyObj.details = data.details;
+        historyObj.date = date.toDateString();
+        historyObj.links = data.links;
+        if (data.flight_number && data.flight_number !== undefined) {
+          fetch('https://api.spacexdata.com/v3/launches/' + data.flight_number)
+            .then(res => {
+              if (res.ok) {
+                return res;
+              }
+              throw Error(res.statusText);
+            })
+            .then(res => res.json())
+            .then(data => {
+              var launchDate = new Date(data.launch_date_utc);
+              historyObj.isLaunch = true;
+              historyObj.launch = {
+                mission_name: data.mission_name,
+                details: data.details,
+                date: launchDate.toDateString(),
+                rocket: data.rocket.rocket_name,
+                launch_site: data.launch_site.site_name_long,
+                launch_links: data.links,
+                launch_success: data.launch_success,
+                isLaunch: true
+              };
+              return displayHistoryEvent(historyObj);
+            })
+            .catch(error => console.log(error));
+        } else {
+          return displayHistoryEvent(historyObj);
+        }
+      })
+      .catch(error => console.log(error));
+  }
 
-function displayHistoryEvent(event) {
-  console.log('HERE');
-  console.log(event);
-  container.innerHTML += `
+  /*
+   * Get the created event or launch object
+   * Append the information to the DOM
+   */
+  function displayHistoryEvent(event) {
+    container.innerHTML += `
     
     <div class="b-single__event">
       <nav class="b-single__event__nav">
@@ -163,11 +148,15 @@ function displayHistoryEvent(event) {
           <tbody>
           ${Object.keys(event.links)
             .map(link => {
-              if (event.links[link] !== null && event.links[link].length > 0) {
+              if (
+                event.links[link] !== null &&
+                event.links[link].length > 0 &&
+                formatLinkTitles(link)
+              ) {
                 return `<tr>
-                <td><a href="${event.links[link]}">Article on ${
-                  link === 'article' ? 'SpaceX' : link
-                }</a></td>
+                <td><a href="${
+                  event.links[link]
+                }">Article on ${formatLinkTitles(link)}</a></td>
               </tr>`;
               }
             })
@@ -205,4 +194,51 @@ function displayHistoryEvent(event) {
       </section>
     </div>
   `;
-}
+  }
+
+  /*
+   * The links from the received API call has some funky names
+   * This function makes it so it is better
+   */
+  function formatLinkTitles(link) {
+    var linkTitle;
+    switch (link) {
+      case 'mission_patch':
+        linkTitle = 'Mission Patch';
+        break;
+      case 'mission_patch_small':
+        linkTitle = 'The small Mission';
+        break;
+      case 'reddit_campaign':
+        linkTitle = 'The Reddit Campaign';
+        break;
+      case 'reddit_launch':
+        linkTitle = 'The Reddit Launch';
+        break;
+      case 'reddit_recovery':
+        linkTitle = 'The Reddit Recovery';
+        break;
+      case 'reddit_media':
+        linkTitle = 'The Reddit Media';
+        break;
+      case 'presskit':
+        linkTitle = 'The Presskit';
+        break;
+      case 'article_link':
+        linkTitle = 'The SpaceX article';
+        break;
+      case 'wikipedia':
+        linkTitle = 'The Wikipedia article';
+        break;
+      case 'video_link':
+        linkTitle = 'The Youtube Video';
+        break;
+      case 'flickr_images':
+        linkTitle = false;
+        break;
+      default:
+        break;
+    }
+    return linkTitle;
+  }
+})();

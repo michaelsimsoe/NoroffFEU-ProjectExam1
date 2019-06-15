@@ -1,4 +1,15 @@
 /*------------------------------------*\
     #JOIN SUCCESS
 \*------------------------------------*/
-.b-join-success {}
+.b-join-success {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b-join-success__message {
+    background: linear-gradient(180deg, rgba(21, 0, 61, 0.9), rgba(21, 0, 61, 0.6));
+    margin: .5em;
+    padding: 1em;
+}

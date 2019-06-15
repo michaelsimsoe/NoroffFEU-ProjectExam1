@@ -9,23 +9,30 @@
  * Box-sizing...........Better default `box-sizing`.
  *
  * BASE
- * Typography.............Font-face and rules.
+ * Elements.............Base HTML tags.
+ * Typography...........Font-face and rules.
  * Headings.............H1-H6 styles.
  *
  * OBJECTS
- * Wrappers.............Wrapping and constraining elements.
+ * Containers...........Wrapping and constraining elements.
+ * Buttons..............Styling for site wide buttons.
+ * Skip content.........Skip content navigation
  *
  * COMPONENTS
- * Page-head............The main page header.
- * Page-foot............The main page footer.
- * Buttons..............Button elements.
+ * Header...............The sitewide header and navigation.
+ * Mobile Menu..........The mobile navigation bar.
+ * Footer...............The sitewide footer.
+ * Takeof-section.......Hero section of the landing page.
+ * Timeline-section.....The timeline on the main page.
+ * Timetable-section....The table with all the events.
+ * Single event-section....The page for single events.
+ * Join form-section.......The form of the page.
+ * Join form-success-section...The success message after submit.
  *
- * TRUMPS
- * Text.................Text helpers.
  */
 
 @import 'settings/settings';
 @import 'generic/generic';
-@import 'objects/objects';
 @import 'base/base';
+@import 'objects/objects';
 @import 'components/components';

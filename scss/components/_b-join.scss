@@ -72,10 +72,21 @@
   margin-bottom: 1.2em;
 }
 
+#join-first_name-label span {
+  display: block;
+  font-size: 1.4rem;
+}
+
 /* To get the warning under the radio buttons to go below them both*/
 .b-join__join-sex-female {
   display: flex;
   flex-wrap: wrap;
+}
+
+.b-join__form__form-group__sex small {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
 }
 
 .b-join__join-sex-female span {
@@ -92,6 +103,10 @@
 .b-join__identifying-gender {
   display: flex;
   flex-direction: column;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  padding: .5em;
 }
 
 .b-join__identifying-gender__hidden {
@@ -101,6 +116,17 @@
 .b-join__identifying-gender p {
   margin: .4em 0 .2em;
   font-style: italic;
+  font-size: 1.4rem;
+}
+
+.b-join__identifying-gender input {
+  margin: .2em;
+}
+
+.b-join__form__form-group__email small {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
 }
 
 .b-join__form__submit {

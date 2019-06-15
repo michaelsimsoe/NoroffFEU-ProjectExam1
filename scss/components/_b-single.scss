@@ -91,6 +91,10 @@ a.b-single__event__nav__item:hover{
     color: #fff;
 }
 
+a.b-single__event__nav__item:visited {
+    color: #fff;
+}
+
 @media only screen and (min-width: 770px) {
     .b-single__event__nav::before {
         display: none;
@@ -165,6 +169,7 @@ a.b-single__event__nav__item:hover{
 @media only screen and (min-width: 770px) {
     .b-single__body__text {
         width: 50%;
+        padding-right: .2em;
     }
 
     .b-single__body__links-table {

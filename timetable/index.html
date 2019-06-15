@@ -8,7 +8,20 @@
   <title>Timeline Table - The SpaceX Timeline</title>
 </head>
 <body>
-  
+  <a tabindex="1" class="skip-main" href="#maincontent">Skip to main content</a>
+  <nav class="b-mobile-menu b-mobile--init"> <!-- Mobile Menu start  -->
+    <div class="b-mobile-menu__main-logo">
+      <a href="/" class="">
+        <h1 class="">
+          <span class="b-mobile-menu__main-logo__space">Space</span><span class="b-mobile-menu__main-logo__x">X</span> 
+          <span class="b-mobile-menu__main-logo__time"> Timeline</span>
+        </h1>
+      </a>
+    </div>
+    <a href="/" class="b-mobile-menu__link">Timeline</a>
+    <a href="/" class="b-mobile-menu__link b-mobile-menu__link--active">Timetable</a>
+    <a href="/" class="b-mobile-menu__link">Join</a>
+  </nav>
   <header class="b-header"> <!-- HEADER start  -->
     <div class="b-header__main-logo">
       <a href="/">
@@ -20,15 +33,32 @@
       </a>
     </div>
     <nav class="b-header__main-nav">
-      <a href="../" class="b-header__main-nav-item b-header__main-nav-item--active">Timeline</a>
-      <a href="../about" class="b-header__main-nav-item">About SpaceX</a>
+      <a href="../" class="b-header__main-nav-item">Timeline</a>
+      <a href="../timetable" class="b-header__main-nav-item b-header__main-nav-item--active">Timetable</a>
       <a href="../join" class="b-header__main-nav-item">Join us to Mars</a>
     </nav>
   </header> <!-- HEADER end  -->
 
   <main class="o-timetable-container">
     <article class="b-timetable">
-      <header class="b-timetable__header"></header>
+      <header class="b-timetable__header">
+        <h2 class="b-timetable__heading">The SpaceX Timetable</h2>
+      </header>
+      <section class="b-timetable__intro">
+        <h3 class="b-timetable__intro__heading">All the important historical events and rocket launches by SpaceX</h3>
+        <p class="b-timetable__intro__text">There is a link to more information on each event. The future events at the bottom of the table naturally has little information.</p>
+      </section>        
+      <div class="b-timetable__table-controll">
+        <div class="b-timetable__table-controll__group">
+          <input type="checkbox" name="" id="show_history" checked>
+          <label for="show_history">Show historical events</label>
+        </div>
+        <div class="b-timetable__table-controll__group">
+          <input type="checkbox" name="" id="show_launches" checked>
+          <label for="show_launches">Show launches</label>
+        </div>
+      </div>
+      <div class="b-timetable__table-container">
       <table class="b-timetable__timetable">
         <thead class="b-timetable__timetable__head">
           <tr>
@@ -41,6 +71,7 @@
         <tbody class="b-timetable__timetable__body">
         </tbody>
       </table>
+      </div>
     </article>
   </main>
 

@@ -1,5 +1,7 @@
 var eventArray = [];
-const container = document.querySelector('.b-timetable__timetable__body');
+var historicalEvents;
+var launchEvents;
+var container = document.querySelector('.b-timetable__timetable__body');
 fetch('https://api.spacexdata.com/v3/history')
   .then(res => {
     console.log(res);
@@ -40,6 +42,8 @@ fetch('https://api.spacexdata.com/v3/history')
         sorted.forEach(item => {
           makeTimetable(item);
         });
+        historicalEvents = document.querySelectorAll('.historical-event');
+        launchEvents = document.querySelectorAll('.launch-event');
       })
       .catch(
         error => console.log(error)
@@ -94,7 +98,13 @@ function makeLaunchElement(launch) {
 }
 
 function makeTimetable(item) {
-  container.innerHTML += `<tr>
+  container.innerHTML += `<tr class="b-timetable__timetable__row ${
+    item.isHistoryEvent
+      ? item.isLaunch
+        ? 'historical-event'
+        : 'historical-event'
+      : 'launch-event'
+  }">
     <td>${item.dateString}</td>
     <td>${
       item.isHistoryEvent
@@ -109,3 +119,25 @@ function makeTimetable(item) {
   }">Read about event</a></td>
   </tr>`;
 }
+
+const showHistory = document.querySelector('#show_history');
+const showLaunches = document.querySelector('#show_launches');
+
+showHistory.addEventListener('click', function(e) {
+  console.log('History', historicalEvents);
+  if (!showHistory.checked) {
+    historicalEvents.forEach(e => {
+      e.style.display = 'none';
+    });
+  } else {
+    historicalEvents.forEach(e => (e.style.display = 'block'));
+  }
+});
+
+showLaunches.addEventListener('click', function(e) {
+  if (!showLaunches.checked) {
+    launchEvents.forEach(e => (e.style.display = 'none'));
+  } else {
+    launchEvents.forEach(e => (e.style.display = 'block'));
+  }
+});

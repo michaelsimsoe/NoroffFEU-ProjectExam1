@@ -84,7 +84,7 @@ function makeLaunchElement(launch) {
   var isLaunch = true;
   var isHistoryEvent = false;
   var text = details;
-  var id = launch.id;
+  var id = launch.flight_number;
   return {
     date,
     dateString,
@@ -143,6 +143,30 @@ function limitTextTo140(string, text) {
   }
 }
 
+function scrollPercent() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+
+  if (scrolled < 90) {
+    document.querySelector('.progress').style.display = 'block';
+    document.querySelector('.progress').innerHTML = Math.floor(scrolled) + '%';
+  }
+
+  if (scrolled > 50 && scrolled < 60) {
+    document.querySelector('.progress').innerHTML = 'Half way to Mars!';
+  }
+
+  if (scrolled > 90) {
+    document.querySelector('.progress').innerHTML = 'Landing...';
+  }
+  if (scrolled === 100) {
+    document.querySelector('.progress').style.display = 'none';
+  }
+}
+
 var hero = document.querySelector('.takeoff-container');
 var clouds = document.querySelector('.b-takeoff__cluds');
 var launchedRocket = document.querySelector('.b-takeoff__rocket-launched');
@@ -151,7 +175,6 @@ var logo = document.querySelector('.b-header__main-logo');
 var header = document.querySelector('.b-header');
 
 var launchControll = document.querySelector('.b-takeoff__controll');
-
 var mobileMenu = document.querySelector('.b-mobile-menu');
 var mobileMenuInitLogo = document.querySelector(
   '.b-mobile-menu__main-logo a h1'
@@ -164,6 +187,7 @@ var mediaQuery770 = window.matchMedia('(min-width: 770px)');
 window.addEventListener(
   'scroll',
   function() {
+    scrollPercent();
     // or window.addEventListener("scroll"....
     var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
     var moveValue;
@@ -294,6 +318,7 @@ function countDown(el, time) {
 }
 
 var timelineRocket = document.getElementById('timeline-rocket');
+var progress = document.querySelector('.progress');
 
 if (!!window.IntersectionObserver) {
   console.log('observing');
@@ -303,11 +328,13 @@ if (!!window.IntersectionObserver) {
         if (entry.isIntersecting) {
           console.log(entry);
           addRocket();
+          progress.classList.remove('progress--hidden');
           console.log('REMOVING', timelineRocket);
         } else {
           document
             .getElementById('timeline-rocket')
             .classList.add('b-timeline__rocket--hidden');
+          progress.classList.add('progress--hidden');
         }
       });
     },

@@ -8,7 +8,20 @@
   <title>Join the Mars mission - The SpaceX Timeline</title>
 </head>
 <body>
-  
+  <a tabindex="1" class="skip-main" href="#maincontent">Skip to main content</a>
+  <nav class="b-mobile-menu b-mobile--init"> <!-- Mobile Menu start  -->
+    <div class="b-mobile-menu__main-logo">
+      <a href="/" class="">
+        <h1 class="">
+          <span class="b-mobile-menu__main-logo__space">Space</span><span class="b-mobile-menu__main-logo__x">X</span> 
+          <span class="b-mobile-menu__main-logo__time"> Timeline</span>
+        </h1>
+      </a>
+    </div>
+    <a href="/" class="b-mobile-menu__link">Timeline</a>
+    <a href="/" class="b-mobile-menu__link">Timetable</a>
+    <a href="/" class="b-mobile-menu__link b-mobile-menu__link--active">Join</a>
+  </nav>
   <header class="b-header"> <!-- HEADER start  -->
     <div class="b-header__main-logo">
       <a href="/">
@@ -33,7 +46,7 @@
         <h3 class="b-join__subheading">But not because it is easy</h3>
       </header>
     
-      <form action="" class="b-join__form">
+      <form action="success.html" class="b-join__form">
         <h2>We need the bright and the brave</h2>
         <h3>Are you one of them?</h3>
         <h3>Apply today!</h3>
@@ -66,8 +79,8 @@
           </div>
           <div class="b-join__identifying-gender__container">
             <input type="checkbox" name="join-gender" id="join-gender">
-            <label for="join-gender">"My identifying gender is different"</label>
-            <div class="b-join__identifying-gender">
+            <label for="join-gender">Is there anything about your identifying gender you would like to mention?</label>
+            <div class="b-join__identifying-gender b-join__identifying-gender__hidden">
               <p>You are not required to inform about this</p>
               <label for="join-identifying-gender">What is your gender?</label>
               <input type="text" id="join-identifying-gender" name="join-identifying-gender">

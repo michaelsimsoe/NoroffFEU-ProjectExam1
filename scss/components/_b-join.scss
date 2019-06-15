@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    margin: .5em;
 }
 
 .b-join__header {
@@ -89,9 +90,12 @@
 }
 
 .b-join__identifying-gender {
-  display: none;
-  // display: flex;
+  display: flex;
   flex-direction: column;
+}
+
+.b-join__identifying-gender__hidden {
+  display: none;
 }
 
 .b-join__identifying-gender p {

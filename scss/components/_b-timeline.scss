@@ -1,6 +1,20 @@
 /*------------------------------------*\
     #TIMELINE
 \*------------------------------------*/
+.progress {
+  position: fixed;
+  font-size: 2.1rem;
+  color: rgba(255, 255, 255, 0.5);
+  top: 15%;
+  right: 3%;
+  height: auto;
+  width: 50px;
+  z-index: 25;
+}
+
+.progress--hidden {
+  opacity: 0;
+}
 .b-timeline {
   position: relative;
   background: linear-gradient(180deg, rgba(21, 0, 61, 0.8), rgba(21, 0, 61, 0.2)), url(../img/space.jpg);
@@ -566,9 +580,15 @@ $top:     10px   10px   10px   10px   10px   10px   10px   10px   10px   10px;
   }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .b-timeline__mars img {
     width: 120%;
+  } 
+}
+
+@media only screen and (min-width: 1400px) {
+  .b-timeline__mars img {
+    width: 150%;
   } 
 }
 
@@ -593,8 +613,5 @@ $top:     10px   10px   10px   10px   10px   10px   10px   10px   10px   10px;
   right: 0;
   margin: 0;
   opacity: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }

@@ -4,15 +4,225 @@
 .b-single {
     display: flex;
     flex-direction: row;
+    margin: 0 .5em;
 }
 
 .b-single__rocket-img {
+    display: none;
     margin: 0;
 }
-.b-single__rocket-img img {
-    min-height: 100%;
+@media only screen and (min-width: 770px) {
+    .b-single__rocket-img {
+        display: block;
+        margin-top: 2em;
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+    .b-single__rocket-img img {
+        min-height: 100%;
+    }
 }
 
 .b-single__event {
     flex-grow: 3;
+}
+
+@media only screen and (min-width: 770px) {
+    .b-single__event {
+        margin-left: 3em;
+    }
+}
+
+.b-single__header {
+    margin-top: 0.5em;
+    display: flex;
+    border: 5px solid #025A8F;
+    background-color: #025A8F;
+}
+
+.b-single__header__event-title {
+    margin-bottom: 0;
+}
+
+.b-single__header__event-date {
+    margin-top: .1em;
+    text-transform: uppercase;
+}
+
+.b-single__launch-true {
+    background-color: #025A8F;
+    height: 100%;
+    align-self: center;
+    text-transform: uppercase;
+    transform-origin: center center;
+    transform: rotate(-90deg);
+    font-size: 1.4rem;
+}
+
+.b-single__event__nav {
+    margin: 1em 0;
+    padding-left: .5em;
+    border: 5px solid #fff;
+    min-height: 44px;
+}
+
+.b-single__event__nav::before {
+    content: '';
+    position: absolute;
+    left: .5em;
+    border-top: 20px solid #e8e8e8;
+    border-right: 20px solid transparent;
+    clear: both;
+}
+
+.b-single__event__nav:hover {
+    background-color: rgb(0, 129, 210);
+}
+
+.b-single__event__nav__item {
+    padding: .5em .2em;
+    font-size: 2rem;
+    display: block;
+    margin-right: auto;
+}
+
+.b-single__event__nav:hover,
+a.b-single__event__nav__item:hover{
+    color: #fff;
+}
+
+@media only screen and (min-width: 770px) {
+    .b-single__event__nav::before {
+        display: none;
+    }
+
+    .b-single__event__nav {
+        margin-top: 2em;
+        width: 33%;
+        background-color: #fff;
+    }
+    
+    .b-single__event__nav__item {
+        color: #025A8F;
+    }
+}
+
+.b-single__body {
+    background: linear-gradient(180deg, rgba(21, 0, 61, 0.9), rgba(21, 0, 61, 0.6));
+    padding: .5em;
+    margin: .5em 0 .5em;
+}
+
+@media only screen and (min-width: 770px) {
+    .b-single__body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .b-single__body p {
+        font-size: 2rem;
+    }
+}
+
+.b-single__body__links-table {
+    border: 5px solid #fff;
+    background-color: #fff;
+    color: #025A8F;
+    width: 100%;
+}
+
+.b-single__body__links-table thead {
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    width: 100%;
+}
+
+
+.b-single__body__links-table tbody {
+    text-align: center;
+}
+
+.b-single__body__links-table tbody a {
+     color: #025A8F;
+     min-height: 44px;
+}
+
+.b-single__body__links-table tr:hover {
+     background-color: #025A8F;
+}
+
+.b-single__body__links-table tr:hover, .b-single__body__links-table tr:hover a {
+     color: #fff;
+}
+
+.b-single__body__links-table tr:active {
+     background-color: #025A8F;
+}
+
+.b-single__body__links-table tr:active, .b-single__body__links-table tr:active a {
+     color: #fff;
+}
+
+@media only screen and (min-width: 770px) {
+    .b-single__body__text {
+        width: 50%;
+    }
+
+    .b-single__body__links-table {
+        width: 50%;
+    }
+
+    .b-single__body__launch-information {
+        width: 100%;
+    }
+
+}
+
+.b-single__body__launch-information {
+    border: 5px solid #fff;
+    padding: .5em 0;
+}
+
+.b-single__body__launch-information__heading {
+    margin: .5em;
+}
+
+.b-single__body__launch-information__status {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+    padding: .5em;
+    color: #025A8F;
+    text-transform: uppercase;
+}
+
+.b-single__body__launch-information__status-successful {
+
+}
+.b-single__body__launch-information__status-not-successful {}
+
+.b-single__body__launch-information__site,
+.b-single__body__launch-information__name {
+    margin: .5em;
+}
+
+.b-single__body__launch-information__name span,
+.b-single__body__launch-information__site span {
+    text-decoration: underline;
+}
+
+.b-single__body__launch-information__wiki-link,
+.b-single__body__launch-information__video {
+    margin: 2em .5em .5em;
+    display: block;
+    color: #fff;
+}
+
+.b-single__body__launch-information__wiki-link:hover,
+.b-single__body__launch-information__video:hover {
+    color: #025A8F;
+}
+
+.b-single__body__launch-information__wiki-link:active,
+.b-single__body__launch-information__video:active {
+    color: #025A8F;
 }

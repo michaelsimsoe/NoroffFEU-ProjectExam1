@@ -1,0 +1,186 @@
+/*------------------------------------*\
+    #TIMETABLE SECTION
+\*------------------------------------*/
+
+.b-timetable {
+  padding: .5em;
+}
+
+@media only screen and (min-width: 770px) {
+  .b-timetable {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+
+.b-timetable__header {
+  width: 100%;
+  padding: .5em;
+  background-color: #025A8F;
+}
+
+.b-timetable__heading {
+  padding: .5em;
+  text-align: center;
+  margin: 0;
+}
+
+.b-timetable__intro {
+  padding: .5em;
+}
+
+
+.b-timetable__table-controll {
+  padding: .5em;
+}
+
+.b-timetable__table-controll__group {
+  margin: .5em .5em 0;
+}
+
+@media only screen and (min-width: 770px) {
+  .b-timetable__table-controll {
+    display: flex;
+  }
+
+  .b-timetable__table-controll__group {
+    
+  }
+}
+.b-timetable__intro__heading {}
+
+.b-timetable__intro__text {}
+
+.b-timetable__table-container {
+  overflow-x: auto;
+}
+
+@media only screen and (min-width: 770px) {
+  .b-timetable__table-container {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+.event--hidden {
+  display: hidden !important;
+}
+
+.b-timetable__timetable {
+  box-sizing: border-box;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 1em;
+  font-size: 1.6rem;
+  min-width: 380px;
+}
+
+@media only screen and (min-width: 770px) {
+  .b-timetable__timetable {
+    width: 100%;
+  }
+}
+
+.b-timetable__timetable td {
+  padding-top: .2em;
+  padding-bottom: .2em;
+  padding-right: .2em; 
+}
+
+.b-timetable__timetable td:first-child {
+  padding-left: .2em;
+  padding-right:0;
+}
+
+.b-timetable__timetable th:first-child {
+  padding-left: .2em;
+  padding-right:0;
+}
+
+@media only screen and (min-width: 770px) {
+  .b-timetable__timetable td:first-child {
+    padding-left: .5em;
+  }
+
+  .b-timetable__timetable th:first-child {
+    padding-left: .5em;
+  } 
+}
+
+.b-timetable__timetable th {
+  font-size: 2rem;
+}
+
+.b-timetable__timetable tr {
+  padding-top: .2em;
+  padding-bottom: .2em;
+  padding-right: .2em;
+  display: block;
+  margin: .5em 0;
+  border-radius: 3px;
+}
+
+.b-timetable__timetable tr:not(:first-of-type) {
+  box-shadow: 2px 2px 3px -1px rgba(255, 255, 255, 0.201);
+}
+
+
+.b-timetable__timetable__body tr:hover,
+.b-timetable__timetable tr:active {
+  transform: scale(1.05);
+}
+
+.b-timetable__timetable td, 
+.b-timetable__timetable th {
+  width: 170px; 
+  text-align: left;
+  min-height: 50px;
+}
+
+@media only screen and (min-width: 770px) {
+  .b-timetable__timetable {
+    text-align: center;
+  }  
+}
+
+
+.b-timetable__timetable__head {
+  background-color: #025A8F;
+  padding: .5em;
+}
+
+.b-timetable__timetable__head tr {
+  text-align: left;
+  font-size: 1.8rem;
+
+}
+
+.b-timetable__timetable__body {
+
+}
+
+.b-timetable__timetable__row {
+  margin: .25em 0;
+}
+
+.b-timetable__timetable__row:nth-child(odd) {
+  background-color: #fff;
+  color: #025A8F;
+}
+
+.b-timetable__timetable__row:nth-child(odd) a {
+  color: #025A8F;
+}
+
+.b-timetable__timetable__row:nth-child(even) {
+  background-color: #025A8F;
+  color: #fff;
+}
+
+.b-timetable__timetable__row:nth-child(even) a {
+  color: #fff;
+}

@@ -1,5 +1,3 @@
-console.log('ok');
-
 const joinForm = document.querySelector('.b-join__form');
 let joinInputs = joinForm.getElementsByTagName('input');
 
@@ -25,4 +23,15 @@ Array.from(joinInputs).forEach(input => {
       e.target.classList.add('invalid');
     }
   });
+});
+
+var idGender = document.querySelector('#join-gender');
+var idGenderDiv = document.querySelector('.b-join__identifying-gender');
+idGender.addEventListener('click', function(e) {
+  console.log('click', idGender.checked);
+  if (idGender.checked) {
+    idGenderDiv.classList.remove('b-join__identifying-gender__hidden');
+  } else {
+    idGenderDiv.classList.add('b-join__identifying-gender__hidden');
+  }
 });

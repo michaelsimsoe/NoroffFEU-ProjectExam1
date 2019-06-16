@@ -311,6 +311,20 @@
           clouds.classList.remove('b-takeoff__cluds--hidden');
         }
       }
+
+      if (mediaQuery770.matches) {
+        if (scrollTop > 2500) {
+          document.querySelector('.b-takeoff__bg').style.display = 'none';
+        } else {
+          document.querySelector('.b-takeoff__bg').style.display = 'block';
+        }
+      } else {
+        if (scrollTop > 1000) {
+          document.querySelector('.b-takeoff__bg').style.display = 'none';
+        } else {
+          document.querySelector('.b-takeoff__bg').style.display = 'block';
+        }
+      }
     },
     false
   );

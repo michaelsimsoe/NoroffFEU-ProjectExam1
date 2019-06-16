@@ -736,6 +736,7 @@ a.skip-main:focus, a.skip-main:active {
   margin: .2em; }
 
 .b-footer__social-links__link img {
+  min-height: 72px;
   width: 100%; }
 
 @media only screen and (min-width: 770px) {
@@ -748,6 +749,7 @@ a.skip-main:focus, a.skip-main:active {
     transform: scale(1.1); }
 
   .b-footer__social-links__link img {
+    min-height: 120px;
     width: 80%; } }
 .b-footer__information {
   font-size: 1.2rem;
@@ -1636,10 +1638,12 @@ a.skip-main:focus, a.skip-main:active {
     padding: 1.2em; } }
 @media only screen and (min-width: 1200px) {
   .b-timeline__mars img {
+    height: 120%;
     width: 120%; } }
 @media only screen and (min-width: 1400px) {
   .b-timeline__mars img {
-    width: 150%; } }
+    height: 140%;
+    width: 140%; } }
 .b-timeline__mars__timetable-link {
   position: absolute;
   bottom: 2%;
@@ -1976,7 +1980,7 @@ a.b-single__event__nav__item:visited {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin: .5em; }
+  margin: 0 .5em; }
 
 .b-join__header {
   z-index: 2;

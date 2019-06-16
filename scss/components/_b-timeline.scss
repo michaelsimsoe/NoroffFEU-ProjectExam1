@@ -547,13 +547,15 @@ $top:     10px   10px   10px   10px   10px   10px   10px   10px   10px   10px;
 
 @media only screen and (min-width: 1200px) {
   .b-timeline__mars img {
+    height: 120%;
     width: 120%;
   } 
 }
 
 @media only screen and (min-width: 1400px) {
   .b-timeline__mars img {
-    width: 150%;
+    height: 140%;
+    width: 140%;
   } 
 }
 

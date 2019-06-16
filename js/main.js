@@ -97,6 +97,8 @@
 
   function makeHistoricalEvent(event) {
     var date = new Date(event.event_date_utc);
+    var dateTime =
+      date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     var dateString = date.toDateString();
     var title = event.title;
     var isLaunch = event.flight_number != null ? true : false;
@@ -105,6 +107,7 @@
     var id = event.id;
     return {
       date,
+      dateTime,
       dateString,
       title,
       isLaunch,
@@ -122,6 +125,8 @@
   function makeLaunchElement(launch) {
     var details = launch.details;
     var date = new Date(launch.launch_date_utc);
+    var dateTime =
+      date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     var dateString = date.toDateString();
     var title = launch.mission_name;
     var isLaunch = true;
@@ -130,6 +135,7 @@
     var id = launch.flight_number;
     return {
       date,
+      dateTime,
       dateString,
       title,
       isLaunch,
@@ -160,7 +166,9 @@
           : ''
       }
       <div class="b-timeline__item__content">
-      <h2 class="b-timeline__item__date">${item.dateString}</h2>
+      <h2 class="b-timeline__item__date"><time datetime="${item.dateTime}">${
+      item.dateString
+    }</time></h2>
       <h3 class="b-timeline__item__title">${item.title}</h3>
       ${
         item.text

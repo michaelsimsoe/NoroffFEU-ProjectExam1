@@ -47,6 +47,8 @@
    */
   function makeHistoricalEvent(event) {
     var date = new Date(event.event_date_utc);
+    var dateTime =
+      date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     var dateString = date.toDateString();
     var title = event.title;
     var isLaunch = event.flight_number != null ? true : false;
@@ -55,6 +57,7 @@
     var id = event.id;
     return {
       date,
+      dateTime,
       dateString,
       title,
       isLaunch,
@@ -71,6 +74,8 @@
   function makeLaunchElement(launch) {
     var details = launch.details;
     var date = new Date(launch.launch_date_utc);
+    var dateTime =
+      date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     var dateString = date.toDateString();
     var title = launch.mission_name;
     var isLaunch = true;
@@ -79,6 +84,7 @@
     var id = launch.flight_number;
     return {
       date,
+      dateTime,
       dateString,
       title,
       isLaunch,
@@ -100,7 +106,7 @@
           : 'historical-event'
         : 'launch-event'
     }">
-    <td>${item.dateString}</td>
+    <td><time datetime="${item.dateTime}">${item.dateString}</time></td>
     <td>${
       item.isHistoryEvent
         ? item.isLaunch

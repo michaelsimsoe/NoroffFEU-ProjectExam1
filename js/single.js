@@ -20,6 +20,7 @@
   }
   var id = getQueryStringValue('id');
   var eventType = getQueryStringValue('type');
+  var fromTable = getQueryStringValue('table');
 
   if (eventType === 'history') {
     fetchHistory(id);
@@ -124,7 +125,9 @@
     
     <div class="b-single__event">
       <nav class="b-single__event__nav">
-        <a class="b-single__event__nav__item" href="../">Back to the timeline</a>
+        <a class="b-single__event__nav__item" href="${
+          fromTable == 'true' ? '../timetable' : '../'
+        }">Back to the timeline</a>
       </nav>
       <header class="b-single__header">
         ${

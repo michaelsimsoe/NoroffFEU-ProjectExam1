@@ -863,7 +863,7 @@ a.skip-main:focus, a.skip-main:active {
   text-align: center;
   position: absolute;
   padding: 0.2em;
-  bottom: 56%;
+  bottom: 57%;
   transform: translate(50%, -20%);
   z-index: 1;
   left: 50%;
@@ -1872,7 +1872,7 @@ a.b-single__event__nav__item:hover {
   color: #fff; }
 
 a.b-single__event__nav__item:visited {
-  color: #fff; }
+  color: #0081d2; }
 
 @media only screen and (min-width: 770px) {
   .b-single__event__nav::before {

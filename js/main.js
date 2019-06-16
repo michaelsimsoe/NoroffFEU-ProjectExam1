@@ -404,27 +404,25 @@
    */
   var progress = document.querySelector('.progress');
 
-  if (!!window.IntersectionObserver) {
-    let observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            addRocket();
-            progress.classList.remove('progress--hidden');
-          } else {
-            document
-              .getElementById('timeline-rocket')
-              .classList.add('b-timeline__rocket--hidden');
-            progress.classList.add('progress--hidden');
-          }
-        });
-      },
-      {
-        rootMargin: '0px 0px -50% 0px'
-      }
-    );
-    observer.observe(document.querySelector('#timeline'));
-  }
+  let observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          addRocket();
+          progress.classList.remove('progress--hidden');
+        } else {
+          document
+            .getElementById('timeline-rocket')
+            .classList.add('b-timeline__rocket--hidden');
+          progress.classList.add('progress--hidden');
+        }
+      });
+    },
+    {
+      rootMargin: '0px 0px -50% 0px'
+    }
+  );
+  observer.observe(document.querySelector('#timeline'));
 
   /*
    * Removes the hidden class from the rocket

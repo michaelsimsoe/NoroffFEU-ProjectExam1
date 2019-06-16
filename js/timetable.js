@@ -117,7 +117,7 @@
     <td>${item.title}</td>
     <td><a href="../single/?type=${item.eventType}&id=${
       item.id
-    }">Read about event</a></td>
+    }&table=true">Read about event</a></td>
   </tr>`;
   }
 

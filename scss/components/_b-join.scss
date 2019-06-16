@@ -79,8 +79,13 @@
 
 /* To get the warning under the radio buttons to go below them both*/
 .b-join__join-sex-female {
+  margin-top: .4em;
   display: flex;
   flex-wrap: wrap;
+}
+
+.b-join__join-sex-female label {
+  margin-left: .3em;
 }
 
 .b-join__form__form-group__sex small {
